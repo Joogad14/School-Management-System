@@ -240,7 +240,7 @@ return (
       </div>
 
       {/* FORM */}
-      <div className="bg-white p-6 rounded-2xl shadow-lg">
+      <div bg-white p-6 rounded-2xl shadow-lg border border-gray-300>
         <form onSubmit={handleSubmit} className="space-y-3">
 
           <select name="title" value={form.title} onChange={handleChange} className="w-full p-3 rounded-xl border border-slate-200 bg-white text-gray-700 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition duration-200 hover:border-blue-300">
@@ -252,22 +252,22 @@ return (
             <option>Prof</option>
           </select>
 
-          <input name="firstName" placeholder="First Name" value={form.firstName} onChange={handleChange} className="input border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-200 hover:border-blue-300 transition"/>
-          <input name="otherName" placeholder="Other Name" value={form.otherName} onChange={handleChange} className="input border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-200 hover:border-blue-300 transition"/>
-          <input name="lastName" placeholder="Last Name" value={form.lastName} onChange={handleChange} className="input border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-200 hover:border-blue-300 transition"/>
-          <input name="email" placeholder="Email" value={form.email} onChange={handleChange} className="input border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-200 hover:border-blue-300 transition"/>
+          <input name="firstName" placeholder="First Name" value={form.firstName} onChange={handleChange} className="w-full p-3 rounded-xl border border-gray-400 bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"/>
+          <input name="otherName" placeholder="Other Name" value={form.otherName} onChange={handleChange} className="w-full p-3 rounded-xl border border-gray-400 bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"/>
+          <input name="lastName" placeholder="Last Name" value={form.lastName} onChange={handleChange} className="w-full p-3 rounded-xl border border-gray-400 bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"/>
+          <input name="email" placeholder="Email" value={form.email} onChange={handleChange} className="w-full p-3 rounded-xl border border-gray-400 bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"/>
 
           {/* PASSWORD */}
           <div className="relative">
             <input
               type={showPassword ? "text" : "password"}
               name="password"
-              className="input border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-200 hover:border-blue-300 transition"
+              className="w-full p-3 rounded-xl border border-gray-400 bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               placeholder="Password"
               value={form.password}
               onChange={handleChange}
             />
-            <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 cursor-pointer hover:text-cyan-600">
+            <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-600 cursor-pointer hover:text-cyan-600">
               {showPassword ? <EyeOff /> : <Eye />}
             </button>
           </div>
@@ -277,12 +277,12 @@ return (
             <input
               type={showConfirmPassword ? "text" : "password"}
               name="confirmPassword"
-              className="input border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-200 hover:border-blue-300 transition"
+              className="w-full p-3 rounded-xl border border-gray-400 bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               placeholder="Confirm Password"
               value={form.confirmPassword}
               onChange={handleChange}
             />
-            <button type="button" onClick={() => setShowConfirmPassword(!showConfirmPassword)} className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 cursor-pointer hover:text-cyan-600">
+            <button type="button" onClick={() => setShowConfirmPassword(!showConfirmPassword)} className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-600 cursor-pointer hover:text-cyan-600">
               {showConfirmPassword ? <EyeOff /> : <Eye />}
             </button>
           </div>
@@ -312,8 +312,8 @@ return (
 
       {/* TABLE */}
       <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-        <table className="w-full text-sm">
-          <thead className="bg-slate-200">
+        <table className="w-full text-sm text-gray-800">
+          <thead className="bg-slate-200 text-gray-800">
             <tr>
               <th className="p-3">S/N</th>
               <th className="p-3">Admin ID</th>
@@ -337,7 +337,7 @@ return (
             );
           })
           .map((a, i) => (
-              <tr key={a._id} className="border-t">
+              <tr key={a._id} className="border-t text-gray-300">
                 <td className="p-3">{i + 1}</td>
 
                 {/*  ADMIN ID FIXED */}
@@ -345,13 +345,13 @@ return (
                   {a.adminId}
                 </td>
 
-                <td className="p-3">
+                <td className="p-3 text-gray-800">
                   {a.title} {a.firstName} {a.lastName}
                 </td>
 
-                <td className="p-3">{a.email}</td>
+                <td className="p-3 text-gray-800">{a.email}</td>
 
-                <td className="p-3">{a.isActive ? "Yes" : "No"}</td>
+                <td className="p-3 text-gray-800">{a.isActive ? "Yes" : "No"}</td>
 
                 <td className="p-3 flex gap-2">
                   <button onClick={() => handleEdit(a)} className="text-blue-600 cursor-pointer">Edit</button>

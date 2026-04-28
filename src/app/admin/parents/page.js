@@ -200,7 +200,7 @@ export default function ParentPage() {
             name="parentTitle"
             value={form.parentTitle}
             onChange={handleChange}
-            className="w-full p-3 rounded-xl border border-slate-200 bg-white text-gray-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition duration-200 hover:border-blue-300"
+            className="w-full p-3 rounded-xl border border-gray-400 bg-white  text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
           >
             <option value="">Select Title</option>
             <option>Mr</option>
@@ -215,7 +215,7 @@ export default function ParentPage() {
             value={form.parentFirstName}
             onChange={handleChange}
             placeholder="First Name"
-            className="input border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-200 hover:border-blue-300 transition"
+            className="w-full p-3 rounded-xl border border-gray-400 bg-white  text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
           />
 
           <input
@@ -224,7 +224,7 @@ export default function ParentPage() {
             onChange={handleChange}
             required
             placeholder="Last Name"
-            className="input border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-200 hover:border-blue-300 transition"
+            className="w-full p-3 rounded-xl border border-gray-400 bg-white  text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
           />
 
           <input
@@ -233,7 +233,7 @@ export default function ParentPage() {
             required
             onChange={handleChange}
             placeholder="Email"
-            className="input border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-200 hover:border-blue-300 transition"
+            className="w-full p-3 rounded-xl border border-gray-400 bg-white  text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
           />
 
           <input
@@ -241,7 +241,7 @@ export default function ParentPage() {
             value={form.parentPhone}
             onChange={handleChange}
             placeholder="Phone"
-            className="input border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-200 hover:border-blue-300 transition"
+            className="w-full p-3 rounded-xl border border-gray-400 bg-white  text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
           />
 
           <input
@@ -249,7 +249,7 @@ export default function ParentPage() {
             value={form.parentAddress}
             onChange={handleChange}
             placeholder="Address"
-            className="input border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-200 hover:border-blue-300 transition"
+            className="w-full p-3 rounded-xl border border-gray-400 bg-white  text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
           />
 
            <div className="relative">
@@ -259,13 +259,13 @@ export default function ParentPage() {
                         onChange={handleChange}
                         type={showPassword ? "text" : "password"}   // ✅ FIXED
                         placeholder="Password"
-                        className="input border border-slate-200 bg-white w-full pr-10"
+                        className="w-full p-3 rounded-xl border border-gray-400 bg-white  text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                     />
 
                     <button
                         type="button"
                         onClick={() => setShowPassword(!showPassword)}
-                        className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 cursor-pointer hover:text-cyan-600"
+                        className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-600 cursor-pointer hover:text-cyan-600"
                     >
                         {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
                     </button>
@@ -278,13 +278,13 @@ export default function ParentPage() {
                         onChange={handleChange}
                         type={showConfirmPassword ? "text" : "password"} // ✅ FIXED
                         placeholder="Confirm Password"
-                        className="input border border-slate-200 bg-white w-full pr-10"
+                        className="w-full p-3 rounded-xl border border-gray-400 bg-white  text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                     />
 
                     <button
                         type="button"
                         onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                        className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 cursor-pointer hover:text-cyan-600"
+                        className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-600 cursor-pointer hover:text-cyan-600"
                     >
                         {showConfirmPassword ? <EyeOff size={20} /> : <Eye size={20} />}
                     </button>
@@ -311,14 +311,14 @@ export default function ParentPage() {
         placeholder="Search parent by name, ID, email, phone..."
         value={search}
         onChange={(e) => setSearch(e.target.value)}
-        className="w-full p-3 rounded-xl border border-slate-200 bg-white text-gray-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition duration-200 hover:border-blue-300"
+        className="w-full p-3 rounded-xl border border-gray-400 bg-white  text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
       />
 
 
       {/* TABLE */}
       <div className="bg-white rounded-2xl shadow-lg overflow-x-auto">
-        <table className="w-full text-sm">
-          <thead className="bg-slate-200">
+        <table className="w-full text-sm text-gray-800">
+          <thead className="bg-slate-200 text-gray-800">
             <tr>
               <th className="p-3">S/N</th>
               <th className="p-3">Parent ID</th>
@@ -331,14 +331,14 @@ export default function ParentPage() {
 
           <tbody>
             {filteredParents.map((p, i) => (
-              <tr key={p._id} className="border-t">
-                <td className="p-3">{i + 1}</td>
+              <tr key={p._id} className="border-t border-gray-300">
+                <td className="p-3 text-gray-800">{i + 1}</td>
                 <td className="p-3 text-blue-600 font-semibold">{p.parentId}</td>
-                <td className="p-3">
+                <td className="p-3 text-gray-800">
                   {p.title} {p.firstName} {p.lastName}
                 </td>
-                <td className="p-3">{p.email}</td>
-                <td className="p-3">{p.phone}</td>
+                <td className="p-3 text-gray-800">{p.email}</td>
+                <td className="p-3 text-gray-800">{p.phone}</td>
 
                 <td className="p-3 flex gap-3">
                   <button

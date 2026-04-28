@@ -102,88 +102,90 @@ export default function AdminDashboard() {
         </button>
       </header>
 
-      {/* BODY */}
       <div className="p-6 space-y-6">
 
-        {/* ROW 1: ADMIN + SESSION INFO */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+  {/* ROW 1: ADMIN + SESSION INFO */}
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
 
-          {/* Admin Card */}
-          <div className="bg-white p-4 rounded-lg shadow">
-            <p className="text-gray-700 text-sm">Logged-in Admin</p>
-            <p className="text-xl text-gray-900 font-bold">
-              {admin?.firstName} {admin?.lastName}
-            </p>
-            <p className="text-sm text-gray-800">
-              Role: {admin?.role || "Admin"}
-            </p>
-          </div>
+    {/* Admin Card */}
+    <div className="bg-white p-4 rounded-lg shadow border border-gray-300">
+      <p className="text-gray-700 text-sm">Logged-in Admin</p>
+      <p className="text-xl font-bold text-gray-900">
+        {admin?.firstName} {admin?.lastName}
+      </p>
+      <p className="text-sm text-gray-700">
+        Role: {admin?.role || "Admin"}
+      </p>
+    </div>
 
-          {/* Session Card */}
-          <div className="bg-white p-4 rounded-lg shadow">
-            <p className="text-gray-700 text-sm">Academic Session</p>
-            <p className="text-xl font-bold text-gray-900">{currentSession}</p>
-            <p className="text-gray-800 text-sm mt-1">
-              Current Term: {currentTerm}
-            </p>
-          </div>
+    {/* Session Card */}
+    <div className="bg-white p-4 rounded-lg shadow border border-gray-300">
+      <p className="text-gray-700 text-sm">Academic Session</p>
+      <p className="text-xl font-bold text-gray-900">
+        {currentSession}
+      </p>
+      <p className="text-gray-700 text-sm mt-1">
+        Current Term: {currentTerm}
+      </p>
+    </div>
 
-          {/* System Status */}
-          <div className="bg-white p-4 rounded-lg shadow">
-            <p className="text-gray-700 text-sm">System Status</p>
-            <p className="text-green-600 font-semibold mt-2">
-              ● All Systems Operational
-            </p>
-          </div>
+    {/* System Status */}
+    <div className="bg-white p-4 rounded-lg shadow border border-gray-300">
+      <p className="text-gray-700 text-sm">System Status</p>
+      <p className="text-green-600 font-semibold mt-2">
+        ● All Systems Operational
+      </p>
+    </div>
 
-        </div>
+  </div>
 
-        {/* ADMIN DETAILS */}
-        <div className="bg-white p-4 rounded-lg shadow">
-          <h2 className="text-lg font-bold mb-2 text-gray-900">Admin Details</h2>
+  {/* ADMIN DETAILS */}
+  <div className="bg-white p-4 rounded-lg shadow border border-gray-300">
+    <h2 className="text-lg font-bold mb-2 text-gray-900">
+      Admin Details
+    </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-900">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-800">
 
-            <p>
-              <span className="font-semibold text-gray-900">Full Name:</span>{" "}
-              {admin?.title} {admin?.firstName} {admin?.otherName} {admin?.lastName}
-            </p>
+      <p>
+        <span className="font-semibold">Full Name:</span>{" "}
+        {admin?.title} {admin?.firstName} {admin?.otherName} {admin?.lastName}
+      </p>
 
-            <p>
-              <span className="font-semibold text-gray-900">Role:</span>{" "}
-              {admin?.role || "admin"}
-            </p>
+      <p>
+        <span className="font-semibold">Role:</span>{" "}
+        {admin?.role || "admin"}
+      </p>
 
-            {/* ADDED ADMIN ID HERE */}
-            <p>
-              <span className="font-semibold text-gray-900">Admin ID:</span>{" "}
-              {admin?.adminId || "Not Available"}
-            </p>
+      <p>
+        <span className="font-semibold">Admin ID:</span>{" "}
+        {admin?.adminId || "Not Available"}
+      </p>
 
-          </div>
-        </div>
+    </div>
+  </div>
 
-        {/* STATS */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+  {/* STATS */}
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
 
-          <div className="bg-white p-4 rounded-lg shadow hover:shadow-md transition">
-            <p className="text-gray-700 text-sm">Admins</p>
-            <p className="text-2xl font-bold text-gray-900">{stats.admins}</p>
-          </div>
+    <div className="bg-white p-4 rounded-lg shadow border border-gray-300 hover:shadow-md transition">
+      <p className="text-gray-700 text-sm">Admins</p>
+      <p className="text-2xl font-bold text-gray-900">{stats.admins}</p>
+    </div>
 
-          <div className="bg-white p-4 rounded-lg shadow hover:shadow-md transition">
-            <p className="text-gray-700 text-sm">Students</p>
-            <p className="text-2xl font-bold text-gray-900">{stats.students}</p>
-          </div>
+    <div className="bg-white p-4 rounded-lg shadow border border-gray-300 hover:shadow-md transition">
+      <p className="text-gray-700 text-sm">Students</p>
+      <p className="text-2xl font-bold text-gray-900">{stats.students}</p>
+    </div>
 
-          <div className="bg-white p-4 rounded-lg shadow hover:shadow-md transition">
-            <p className="text-gray-700 text-sm text-gray-900">Teachers</p>
-            <p className="text-2xl font-bold">{stats.teachers}</p>
-          </div>
+    <div className="bg-white p-4 rounded-lg shadow border border-gray-300 hover:shadow-md transition">
+      <p className="text-gray-700 text-sm">Teachers</p>
+      <p className="text-2xl font-bold text-gray-900">{stats.teachers}</p>
+    </div>
 
-        </div>
+  </div>
 
-      </div>
+</div>
     </div>
   );
 }

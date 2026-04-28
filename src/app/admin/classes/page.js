@@ -216,7 +216,7 @@ const fetchClasses = async () => {
       </div>
 
       {/* FORM */}
-      <div className="bg-white p-6 rounded-2xl">
+      <div className="bg-white p-6 rounded-2xl border border-gray-300">
         <form onSubmit={handleSubmit} className="space-y-3">
 
           <input
@@ -224,15 +224,15 @@ const fetchClasses = async () => {
             placeholder="Class Name"
             value={form.className}
             onChange={handleChange}
-            className="input border border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-200 hover:border-blue-300 transition"
+            className="w-full p-3 rounded-xl border border-gray-400 bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
           />
 
-          <div className="border p-3 cursor-pointer rounded-lg max-h-48 overflow-y-auto border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-200 hover:border-blue-300 transition">
+          <div className="border border-gray-400 p-3 rounded-lg max-h-48 overflow-y-auto bg-white">
             {staffList.map((s) => (
-                <label key={s._id} className="flex items-center gap-2 p-1 cursor-pointer">
-                <input
+                <label key={s._id} className="flex items-center gap-2 p-1 cursor-pointer text-gray-800">
+                <input 
                     type="checkbox"
-                    className="border cursor-pointer rounded-lg max-h-48 overflow-y-auto border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-200 hover:border-blue-300 transition"
+                     className="cursor-pointer"
                     checked={form.teachers.includes(s._id)}
                     onChange={() => {
                     setForm((prev) => {
@@ -254,7 +254,7 @@ const fetchClasses = async () => {
             </div>
 
           {/*  SELECTED TEACHERS (SMALL UI BOOST) */}
-          <div className="flex flex-wrap gap-2 cursor-pointer">
+          <div className="bg-blue-100 text-blue-700 px-2 py-1 rounded-full text-xs font-medium">
             {form.teachers.map((id) => {
               const staff = staffList.find((s) => s._id === id);
               return (
@@ -282,14 +282,14 @@ const fetchClasses = async () => {
           placeholder="Search by class, teacher, or staff ID..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="w-full p-3 rounded-xl border border-slate-200 bg-white text-gray-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition duration-200 hover:border-blue-300"
+          className="w-full p-3 rounded-xl border border-gray-400 bg-white text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
         />
       </div>
 
       {/* TABLE */}
       <div className="bg-white rounded-2xl overflow-hidden">
-        <table className="w-full text-sm">
-          <thead className="bg-slate-200">
+        <table className="w-full text-sm text-gray-800">
+          <thead className="bg-slate-200 text-gray-800">
             <tr>
               <th className="p-3">S/N</th>
               <th className="p-3">Class</th>
@@ -303,11 +303,11 @@ const fetchClasses = async () => {
             {filteredClasses.map((c, i) => (
               <tr key={c._id} className="border-t hover:bg-blue-50">
 
-                <td className="p-3">{i + 1}</td>
+                <td className="p-3 text-gray-800">{i + 1}</td>
 
-                <td className="p-3">{c.className}</td>
+                <td className="p-3 text-gray-800">{c.className}</td>
 
-                <td className="p-3">
+                <td className="p-3 text-gray-800">
                   {c.teachers.length > 0
                     ? c.teachers.map((t) => `${t.title} ${t.lastName}`).join(", ")
                     : "-"}

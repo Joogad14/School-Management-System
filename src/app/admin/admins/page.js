@@ -209,7 +209,7 @@ useEffect(() => {
 
 if (loading) {
   return (
-    <div className="p-6 text-center text-gray-600">
+    <div className="p-6 text-center text-gray-800">
       Loading admins...
     </div>
   );

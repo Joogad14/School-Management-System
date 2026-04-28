@@ -282,7 +282,7 @@ const fetchClasses = async () => {
           placeholder="Search by class, teacher, or staff ID..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="w-full p-3 rounded-xl border border-slate-200 bg-white text-gray-700 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition duration-200 hover:border-blue-300"
+          className="w-full p-3 rounded-xl border border-slate-200 bg-white text-gray-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition duration-200 hover:border-blue-300"
         />
       </div>
 

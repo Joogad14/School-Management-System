@@ -110,27 +110,27 @@ export default function AdminDashboard() {
 
           {/* Admin Card */}
           <div className="bg-white p-4 rounded-lg shadow">
-            <p className="text-gray-500 text-sm">Logged-in Admin</p>
+            <p className="text-gray-700 text-sm">Logged-in Admin</p>
             <p className="text-xl font-bold">
               {admin?.firstName} {admin?.lastName}
             </p>
-            <p className="text-sm text-gray-600">
+            <p className="text-sm text-gray-800">
               Role: {admin?.role || "Admin"}
             </p>
           </div>
 
           {/* Session Card */}
           <div className="bg-white p-4 rounded-lg shadow">
-            <p className="text-gray-500 text-sm">Academic Session</p>
+            <p className="text-gray-700 text-sm">Academic Session</p>
             <p className="text-xl font-bold">{currentSession}</p>
-            <p className="text-gray-600 text-sm mt-1">
+            <p className="text-gray-800 text-sm mt-1">
               Current Term: {currentTerm}
             </p>
           </div>
 
           {/* System Status */}
           <div className="bg-white p-4 rounded-lg shadow">
-            <p className="text-gray-500 text-sm">System Status</p>
+            <p className="text-gray-700 text-sm">System Status</p>
             <p className="text-green-600 font-semibold mt-2">
               ● All Systems Operational
             </p>
@@ -167,17 +167,17 @@ export default function AdminDashboard() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
 
           <div className="bg-white p-4 rounded-lg shadow hover:shadow-md transition">
-            <p className="text-gray-500 text-sm">Admins</p>
+            <p className="text-gray-700 text-sm">Admins</p>
             <p className="text-2xl font-bold">{stats.admins}</p>
           </div>
 
           <div className="bg-white p-4 rounded-lg shadow hover:shadow-md transition">
-            <p className="text-gray-500 text-sm">Students</p>
+            <p className="text-gray-700 text-sm">Students</p>
             <p className="text-2xl font-bold">{stats.students}</p>
           </div>
 
           <div className="bg-white p-4 rounded-lg shadow hover:shadow-md transition">
-            <p className="text-gray-500 text-sm">Teachers</p>
+            <p className="text-gray-700 text-sm">Teachers</p>
             <p className="text-2xl font-bold">{stats.teachers}</p>
           </div>
 

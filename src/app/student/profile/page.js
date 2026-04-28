@@ -164,17 +164,17 @@ export default function StudentProfilePage() {
       <form onSubmit={handleSubmit} className="bg-white p-6 rounded-2xl space-y-3">
 
         {/* NON-EDITABLE */}
-        <input value={form.studentId} disabled className="input bg-gray-100" />
-        <input value={form.currentClass} disabled className="input bg-gray-100" />
-        <input value={form.parentName} disabled className="input bg-gray-100" />
+        <input value={form.studentId} disabled className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-800 placeholder:text-slate-500 outline-none hover:border-cyan-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-200 transition" />
+        <input value={form.currentClass} disabled className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-800 placeholder:text-slate-500 outline-none hover:border-cyan-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-200 transition" />
+        <input value={form.parentName} disabled className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-800 placeholder:text-slate-500 outline-none hover:border-cyan-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-200 transition"/>
 
         {/* EDITABLE */}
-        <input name="firstName" value={form.firstName} onChange={handleChange} placeholder="First Name" className="input border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-200 hover:border-blue-300 transition" />
-        <input name="otherName" value={form.otherName} onChange={handleChange} placeholder="Other Name" className="input border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-200 hover:border-blue-300 transition" />
-        <input name="lastName" value={form.lastName} onChange={handleChange} placeholder="Last Name" className="input border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-200 hover:border-blue-300 transition" />
-        <input name="email" value={form.email} onChange={handleChange} placeholder="Email" className="input border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-200 hover:border-blue-300 transition" />
-        <input name="phone" value={form.phone} onChange={handleChange} placeholder="Phone" className="input border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-200 hover:border-blue-300 transition" />
-        <input name="address" value={form.address} onChange={handleChange} placeholder="Address" className="input border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-200 hover:border-blue-300 transition" />
+        <input name="firstName" value={form.firstName} onChange={handleChange} placeholder="First Name" className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-800 placeholder:text-slate-500 outline-none hover:border-cyan-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-200 transition"/>
+        <input name="otherName" value={form.otherName} onChange={handleChange} placeholder="Other Name" className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-800 placeholder:text-slate-500 outline-none hover:border-cyan-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-200 transition"/>
+        <input name="lastName" value={form.lastName} onChange={handleChange} placeholder="Last Name" className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-800 placeholder:text-slate-500 outline-none hover:border-cyan-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-200 transition"/>
+        <input name="email" value={form.email} onChange={handleChange} placeholder="Email" className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-800 placeholder:text-slate-500 outline-none hover:border-cyan-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-200 transition"/>
+        <input name="phone" value={form.phone} onChange={handleChange} placeholder="Phone" className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-800 placeholder:text-slate-500 outline-none hover:border-cyan-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-200 transition"/>
+        <input name="address" value={form.address} onChange={handleChange} placeholder="Address" className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-800 placeholder:text-slate-500 outline-none hover:border-cyan-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-200 transition"/>
 
         {/* PASSWORD */}
         <div className="relative">
@@ -184,7 +184,7 @@ export default function StudentProfilePage() {
             value={form.password}
             onChange={handleChange}
             placeholder="New Password (optional)"
-            className="input pr-10 border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-200 hover:border-blue-300 transition"
+            className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-800 placeholder:text-slate-500 outline-none hover:border-cyan-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-200 transition"
           />
 
           <button
@@ -204,7 +204,7 @@ export default function StudentProfilePage() {
             value={form.confirmPassword}
             onChange={handleChange}
             placeholder="Confirm Password"
-            className="input pr-10 border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-200 hover:border-blue-300 transition"
+            className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-800 placeholder:text-slate-500 outline-none hover:border-cyan-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-200 transition"
           />
 
           <button

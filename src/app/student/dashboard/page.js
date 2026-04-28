@@ -126,16 +126,16 @@ export default function StudentDashboard() {
 
         </div>
 
-        {/* DETAILS */}
+        {/* DETAILS */} 
         <div className="bg-white p-4 rounded-lg shadow">
-          <h2 className="text-lg font-bold mb-3">Student Details</h2>
+          <h2 className="text-lg font-bold mb-3 text-gray-600">Student Details</h2>
 
           <div className="grid md:grid-cols-2 gap-3 text-sm">
 
-            <p><b>Email:</b> {student?.email || "N/A"}</p>
-            <p><b>Phone:</b> {student?.phone || "N/A"}</p>
-            <p><b>Address:</b> {student?.address || "N/A"}</p>
-            <p><b>Class:</b> {student?.currentClass || "Not assigned"}</p>
+            <p className="text-[#0a1f44]"><b>Email:</b> {student?.email || "N/A"}</p>
+            <p className="text-[#0a1f44]"><b>Phone:</b> {student?.phone || "N/A"}</p>
+            <p className="text-[#0a1f44]"><b>Address:</b> {student?.address || "N/A"}</p>
+            <p className="text-[#0a1f44]"><b>Class:</b> {student?.currentClass || "Not assigned"}</p>
 
           </div>
         </div>

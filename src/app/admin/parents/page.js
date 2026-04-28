@@ -193,7 +193,7 @@ export default function ParentPage() {
       </div>
 
       {/* FORM */}
-      <div className="bg-white p-6 rounded-2xl shadow-lg">
+      <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-300">
         <form onSubmit={handleSubmit} className="space-y-3">
 
           <select

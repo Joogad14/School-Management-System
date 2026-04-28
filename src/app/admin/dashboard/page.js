@@ -111,7 +111,7 @@ export default function AdminDashboard() {
           {/* Admin Card */}
           <div className="bg-white p-4 rounded-lg shadow">
             <p className="text-gray-700 text-sm">Logged-in Admin</p>
-            <p className="text-xl font-bold">
+            <p className="text-xl text-gray-900 font-bold">
               {admin?.firstName} {admin?.lastName}
             </p>
             <p className="text-sm text-gray-800">
@@ -122,7 +122,7 @@ export default function AdminDashboard() {
           {/* Session Card */}
           <div className="bg-white p-4 rounded-lg shadow">
             <p className="text-gray-700 text-sm">Academic Session</p>
-            <p className="text-xl font-bold">{currentSession}</p>
+            <p className="text-xl font-bold text-gray-900">{currentSession}</p>
             <p className="text-gray-800 text-sm mt-1">
               Current Term: {currentTerm}
             </p>
@@ -140,23 +140,23 @@ export default function AdminDashboard() {
 
         {/* ADMIN DETAILS */}
         <div className="bg-white p-4 rounded-lg shadow">
-          <h2 className="text-lg font-bold mb-2">Admin Details</h2>
+          <h2 className="text-lg font-bold mb-2 text-gray-900">Admin Details</h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-900">
 
             <p>
-              <span className="font-semibold">Full Name:</span>{" "}
+              <span className="font-semibold text-gray-900">Full Name:</span>{" "}
               {admin?.title} {admin?.firstName} {admin?.otherName} {admin?.lastName}
             </p>
 
             <p>
-              <span className="font-semibold">Role:</span>{" "}
+              <span className="font-semibold text-gray-900">Role:</span>{" "}
               {admin?.role || "admin"}
             </p>
 
             {/* ADDED ADMIN ID HERE */}
             <p>
-              <span className="font-semibold">Admin ID:</span>{" "}
+              <span className="font-semibold text-gray-900">Admin ID:</span>{" "}
               {admin?.adminId || "Not Available"}
             </p>
 
@@ -168,16 +168,16 @@ export default function AdminDashboard() {
 
           <div className="bg-white p-4 rounded-lg shadow hover:shadow-md transition">
             <p className="text-gray-700 text-sm">Admins</p>
-            <p className="text-2xl font-bold">{stats.admins}</p>
+            <p className="text-2xl font-bold text-gray-900">{stats.admins}</p>
           </div>
 
           <div className="bg-white p-4 rounded-lg shadow hover:shadow-md transition">
             <p className="text-gray-700 text-sm">Students</p>
-            <p className="text-2xl font-bold">{stats.students}</p>
+            <p className="text-2xl font-bold text-gray-900">{stats.students}</p>
           </div>
 
           <div className="bg-white p-4 rounded-lg shadow hover:shadow-md transition">
-            <p className="text-gray-700 text-sm">Teachers</p>
+            <p className="text-gray-700 text-sm text-gray-900">Teachers</p>
             <p className="text-2xl font-bold">{stats.teachers}</p>
           </div>
 

@@ -200,7 +200,7 @@ export default function ParentPage() {
             name="parentTitle"
             value={form.parentTitle}
             onChange={handleChange}
-            className="w-full p-3 rounded-xl border border-slate-200 bg-white text-gray-700 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition duration-200 hover:border-blue-300"
+            className="w-full p-3 rounded-xl border border-slate-200 bg-white text-gray-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition duration-200 hover:border-blue-300"
           >
             <option value="">Select Title</option>
             <option>Mr</option>
@@ -311,7 +311,7 @@ export default function ParentPage() {
         placeholder="Search parent by name, ID, email, phone..."
         value={search}
         onChange={(e) => setSearch(e.target.value)}
-        className="w-full p-3 rounded-xl border border-slate-200 bg-white text-gray-700 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition duration-200 hover:border-blue-300"
+        className="w-full p-3 rounded-xl border border-slate-200 bg-white text-gray-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition duration-200 hover:border-blue-300"
       />
 
 

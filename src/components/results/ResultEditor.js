@@ -175,10 +175,10 @@ export default function ResultEditor({ studentId }) {
   };
 
   const totalScore = subjects.reduce((sum, s) => {
-  if (term === "3rd Term") {
-    return sum + Number(s.average || 0);
+  if (term === "3rd Term" && type === "EXAM") {
+    return sum + Number(s.average || 0); // only exam uses average
   }
-  return sum + Number(s.total || 0);
+  return sum + Number(s.total || 0); // CA uses total always
 }, 0);
 
   const average =

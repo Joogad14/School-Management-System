@@ -116,18 +116,18 @@ export default function TuitionApprovalPage() {
       <div className="bg-white rounded-2xl overflow-x-auto shadow">
         <table className="w-full text-sm">
 
-          <thead className="bg-slate-200">
+          <thead className="bg-slate-200"> 
             <tr>
-              <th className="p-3">S/N</th>
-              <th className="p-3">Student</th>
-              <th className="p-3">Class</th>
-              <th className="p-3">Parent</th>
-              <th className="p-3">Session</th>
-              <th className="p-3">Term</th>
-              <th className="p-3">Amount</th>
-              <th className="p-3">Receipt</th>
-              <th className="p-3">Status</th>
-              <th className="p-3">Action</th>
+              <th className="p-3 text-gray-800">S/N</th>
+              <th className="p-3 text-gray-800 text-gray-800">Student</th>
+              <th className="p-3 text-gray-800">Class</th>
+              <th className="p-3 text-gray-800">Parent</th>
+              <th className="p-3 text-gray-800">Session</th>
+              <th className="p-3 text-gray-800">Term</th>
+              <th className="p-3 text-gray-800">Amount</th>
+              <th className="p-3 text-gray-800">Receipt</th>
+              <th className="p-3 text-gray-800">Status</th>
+              <th className="p-3 text-gray-800">Action</th>
             </tr>
           </thead>
 
@@ -135,23 +135,23 @@ export default function TuitionApprovalPage() {
             {filteredReceipts.map((r, i) => (
               <tr key={r._id} className="border-t hover:bg-blue-50">
 
-                <td className="p-3">{i + 1}</td>
+                <td className="p-3 text-gray-800">{i + 1}</td>
 
-                <td className="p-3">
+                <td className="p-3 text-gray-800">
                   {r.student?.studentId} - {r.student?.firstName}
                 </td>
 
-                <td className="p-3">
+                <td className="p-3 text-gray-800">
                   {r.student?.currentClass?.className || "-"}
                 </td>
 
-                <td className="p-3">
+                <td className="p-3 text-gray-800">
                   {r.parent?.title} {r.parent?.lastName}
                 </td>
 
-                <td className="p-3">{r.session}</td>
+                <td className="p-3 text-gray-800">{r.session}</td>
 
-                <td className="p-3">{r.term}</td>
+                <td className="p-3 text-gray-800">{r.term}</td>
 
                 <td className="p-3 text-blue-600 font-semibold">
                   ₦{r.amount}

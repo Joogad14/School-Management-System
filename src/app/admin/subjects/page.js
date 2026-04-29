@@ -172,7 +172,7 @@ export default function SubjectPage() {
           placeholder="Subject Code (e.g MTH)"
           value={form.subjectCode}
           onChange={handleChange}
-          className="input border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-200 hover:border-blue-300 transition"
+          className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-800 placeholder:text-slate-500 outline-none hover:border-cyan-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-200 transition"
         />
 
         <input
@@ -180,7 +180,7 @@ export default function SubjectPage() {
           placeholder="Subject Name"
           value={form.subjectName}
           onChange={handleChange}
-          className="input border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-200 hover:border-blue-300 transition"
+          className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-800 placeholder:text-slate-500 outline-none hover:border-cyan-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-200 transition"
         />
 
         {/* CLASS SELECT */}
@@ -199,18 +199,18 @@ export default function SubjectPage() {
         </select>
 
         {/* TEACHERS CHECKBOX */}
-        <div className="border border-slate-200 p-3 rounded-xl max-h-52 overflow-y-auto bg-slate-50 space-y-2">
+        <div className="border border-gray-400 p-3 rounded-lg max-h-48 overflow-y-auto bg-white">
           {staffList.map((s) => (
             <label key={s._id} className="flex items-center gap-2 p-1 cursor-pointer">
               <input
-                type="checkbox"
+                type="checkbox" 
                 className="border cursor-pointer rounded-lg max-h-48 overflow-y-auto border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-200 hover:border-blue-300 transition"
                 checked={form.teachers.includes(s._id)}
                 onChange={() => toggleStaff(s._id)}
               />
 
               {/* ✅ FORMAT YOU REQUESTED */}
-              <span>
+              <span className="text-gray-700">
                 {s.staffId} - {s.title} {s.lastName}
               </span>
             </label>
@@ -240,13 +240,13 @@ export default function SubjectPage() {
       <div className="bg-white rounded-2xl overflow-x-auto">
         <table className="w-full text-sm">
           <thead className="bg-slate-200">
-            <tr>
-            <th className="p-3">S/N</th>
-              <th className="p-3">Code</th>
-              <th className="p-3">Subject</th>
-              <th className="p-3">Class</th>
-              <th className="p-3">Teachers</th>
-              <th className="p-3">Action</th>
+            <tr> 
+            <th className="p-3 text-gray-800">S/N</th>
+              <th className= "p-3 text-gray-800">Code</th>
+              <th className="p-3 text-gray-800">Subject</th>
+              <th className="p-3 text-gray-800">Class</th>
+              <th className="p-3 text-gray-800">Teachers</th>
+              <th className="p-3 text-gray-800">Action</th>
             </tr>
           </thead>
 
@@ -262,17 +262,17 @@ export default function SubjectPage() {
               );
             })
             .map((s, i) => (
-              <tr key={s._id} className="border-t">
+              <tr key={s._id} className="border-ttext-gray-800">
                 
-                <td className="p-3">{i + 1}</td>
+                <td className="p-3 text-gray-800">{i + 1}</td>
                 <td className="p-3 text-blue-600">{s.subjectCode}</td>
-                <td className="p-3">{s.subjectName}</td>
+                <td className="p-3 text-gray-800">{s.subjectName}</td>
 
-                <td className="p-3">
+                <td className="p-3 text-gray-800">
                   {s.class?.className || "-"}
                 </td>
 
-                <td className="p-3">
+                <td className="p-3  text-gray-800">
                   {s.teachers?.length > 0
                     ? s.teachers.map((t) => (
                         <div key={t._id}>

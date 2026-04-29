@@ -282,18 +282,18 @@ const resetForm = () => {
             <option>Prof</option>
           </select>
 
-          <input name="firstName" placeholder="First Name" value={form.firstName} onChange={handleChange} className="input border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-200 hover:border-blue-300 transition" />
-          <input name="otherName" placeholder="Other Name" value={form.otherName} onChange={handleChange} className="input border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-200 hover:border-blue-300 transition" />
-          <input name="lastName" placeholder="Last Name" value={form.lastName} onChange={handleChange} className="input border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-200 hover:border-blue-300 transition" />
+          <input name="firstName" placeholder="First Name" value={form.firstName} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-800 placeholder:text-slate-500 outline-none hover:border-cyan-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-200 transition" />
+          <input name="otherName" placeholder="Other Name" value={form.otherName} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-800 placeholder:text-slate-500 outline-none hover:border-cyan-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-200 transition" />
+          <input name="lastName" placeholder="Last Name" value={form.lastName} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-800 placeholder:text-slate-500 outline-none hover:border-cyan-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-200 transition" />
 
-          <input name="email" placeholder="Email" value={form.email} onChange={handleChange} className="input border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-200 hover:border-blue-300 transition" />
+          <input name="email" placeholder="Email" value={form.email} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-800 placeholder:text-slate-500 outline-none hover:border-cyan-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-200 transition" />
 
             <input
                 name="phone"
                 placeholder="Phone / Contact"
                 value={form.phone}
                 onChange={handleChange}
-                className="input border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-200 hover:border-blue-300 transition"
+                className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-800 placeholder:text-slate-500 outline-none hover:border-cyan-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-200 transition"
                 />
 
           <select name="role" value={form.role} onChange={handleChange} className="w-full p-3 rounded-xl border border-slate-200 bg-white text-gray-700 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition duration-200 hover:border-blue-300">
@@ -303,9 +303,9 @@ const resetForm = () => {
             <option>Class & Subject Teacher</option>
           </select>
 
-          <input name="address" placeholder="Address" value={form.address} onChange={handleChange} className="input border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-200 hover:border-blue-300 transition" />
+          <input name="address" placeholder="Address" value={form.address} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-800 placeholder:text-slate-500 outline-none hover:border-cyan-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-200 transition" />
 
-          <input type="file" name="image" onChange={handleChange} className="input border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-200 hover:border-blue-300 transition" />
+          <input type="file" name="image" onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-800 placeholder:text-slate-500 outline-none hover:border-cyan-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-200 transition" />
 
           {preview && (
             <img src={preview} className="w-24 h-24 rounded-full mx-auto" />
@@ -318,7 +318,7 @@ const resetForm = () => {
                     name="password"
                     placeholder="Password"
                     onChange={handleChange}
-                    className="input pr-10 border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-200 hover:border-blue-300 transition"
+                    className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-800 placeholder:text-slate-500 outline-none hover:border-cyan-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-200 transition"
                 />
 
                 <button
@@ -336,7 +336,7 @@ const resetForm = () => {
                 name="confirmPassword"
                 placeholder="Confirm Password"
                 onChange={handleChange}
-                className="input pr-10 border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-200 hover:border-blue-300 transition"
+                className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-800 placeholder:text-slate-500 outline-none hover:border-cyan-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-200 transition"
             />
 
             <button
@@ -371,47 +371,47 @@ const resetForm = () => {
       {/* TABLE */}
       <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
         <table className="w-full text-sm">
-          <thead className="bg-slate-200 text-left">
+          <thead className="bg-slate-200 text-left text-gray-800">
         <tr>
-            <th className="p-3">S/N</th>
-            <th className="p-3">Staff ID</th>
-            <th className="p-3">Name</th>
-            <th className="p-3">Email</th>
-            <th className="p-3">Contact</th>
-            <th className="p-3">Class</th>
-            <th className="p-3">Subject</th>
-            <th className="p-3">Role</th>
-            <th className="p-3">Action</th>
+            <th className="p-3 text-gray-800">S/N</th>
+            <th className="p-3 text-gray-800">Staff ID</th>
+            <th className="p-3 text-gray-800">Name</th>
+            <th className="p-3 text-gray-800">Email</th>
+            <th className="p-3 text-gray-800">Contact</th>
+            <th className="p-3 text-gray-800">Class</th>
+            <th className="p-3 text-gray-800">Subject</th>
+            <th className="p-3 text-gray-800">Role</th>
+            <th className="p-3 text-gray-800">Action</th>
         </tr>
         </thead>
 
           <tbody>
             {filteredStaff.map((s, i) => (
-              <tr key={s._id} className="border-t hover:bg-blue-50">
+              <tr key={s._id} className="border-t hover:bg-blue-50 text-gray-800">
 
-                <td className="p-3">{i + 1}</td>
+                <td className="p-3 text-gray-800">{i + 1}</td>
 
                 <td className="p-3 text-blue-600 font-semibold">
                   {s.staffId}
                 </td>
 
                 {/* FIXED TITLE DISPLAY */}
-                <td className="p-3">
+                <td className="p-3 text-gray-800">
                   {s.title ? `${s.title} ${s.firstName} ${s.lastName}` : `${s.firstName} ${s.lastName}`}
                 </td>
 
-                <td className="p-3">{s.email || "-"}</td>
+                <td className="p-3 text-gray-800">{s.email || "-"}</td>
 
-                <td className="p-3">{s.phone || "-"}</td>
-                <td className="p-3">
+                <td className="p-3 text-gray-800">{s.phone || "-"}</td>
+                <td className="p-3 text-gray-800">
                   {s.classAssigned?.length ? s.classAssigned.join(", ") : "-"}
                 </td>
 
-                <td className="p-3">
+                <td className="p-3 text-gray-800">
                   {s.subject?.length ? s.subject.join(", ") : "-"}
                 </td>
 
-                <td className="p-3">{s.role}</td>
+                <td className="p-3 text-gray-800">{s.role}</td>
 
                 <td className="p-3 flex gap-2">
                   <button onClick={() => handleEdit(s)} className="text-blue-600 cursor-pointer">

@@ -155,7 +155,7 @@ export default function SessionTermPage() {
           placeholder="e.g 2025/2026"
           value={form.session}
           onChange={handleChange}
-          className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-200 hover:border-blue-300 transition"
+          className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-800 placeholder:text-slate-500 outline-none hover:border-cyan-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-200 transition"
         />
 
         <select
@@ -176,7 +176,7 @@ export default function SessionTermPage() {
           name="from"
           value={form.from}
           onChange={handleChange}
-          className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-200 hover:border-blue-300 transition"
+          className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-800 placeholder:text-slate-500 outline-none hover:border-cyan-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-200 transition"
         />
 
         <input
@@ -184,7 +184,7 @@ export default function SessionTermPage() {
           name="to"
           value={form.to}
           onChange={handleChange}
-          className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-200 hover:border-blue-300 transition"
+          className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-800 placeholder:text-slate-500 outline-none hover:border-cyan-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-200 transition"
         />
 
         <button
@@ -213,16 +213,16 @@ export default function SessionTermPage() {
       handleDelete={handleDelete}
     />
 
-        <table className="min-w-[700px] w-full text-sm">
+        <table className="min-w-[700px] w-full text-sm text-gray-800">
 
           <thead>
             <tr className="text-left bg-slate-100">
-              <th className="p-3">S/N</th>
-              <th className="p-3">Session</th>
-              <th className="p-3">Term</th>
-              <th className="p-3">From</th>
-              <th className="p-3">To</th>
-              <th className="p-3">Actions</th>
+              <th className="p-3 text-gray-800">S/N</th>
+              <th className="p-3 text-gray-800">Session</th>
+              <th className="p-3 text-gray-800">Term</th>
+              <th className="p-3 text-gray-800">From</th>
+              <th className="p-3 text-gray-800">To</th>
+              <th className="p-3 text-gray-800">Actions</th>
             </tr>
           </thead>
 
@@ -239,13 +239,13 @@ export default function SessionTermPage() {
                 .map((item, index) => (
               <tr key={item._id} className="border-t hover:bg-slate-50 transition">
 
-                <td className="p-3">{(page - 1) * 10 + index + 1}</td>
-                <td className="p-3 font-medium">{item.session}</td>
-                <td className="p-3">{item.term}</td>
-                <td className="p-3">
+                <td className="p-3 text-gray-800">{(page - 1) * 10 + index + 1}</td>
+                <td className="p-3 text-gray-800 font-medium">{item.session}</td>
+                <td className="p-3 text-gray-800">{item.term}</td>
+                <td className="p-3 text-gray-800">
                   {new Date(item.from).toLocaleDateString()}
                 </td>
-                <td className="p-3">
+                <td className="p-3 text-gray-800">
                   {new Date(item.to).toLocaleDateString()}
                 </td>
 
@@ -278,19 +278,19 @@ export default function SessionTermPage() {
           <button
             disabled={page === 1}
             onClick={() => fetchSessions(page - 1)}
-            className="px-4 py-2 rounded-lg bg-slate-200 cursor-pointer hover:bg-slate-300 transition disabled:opacity-50 disabled:cursor-not-allowed w-full md:w-auto"
+            className="px-4 py-2 rounded-lg bg-slate-200 text-gray-800 cursor-pointer hover:bg-slate-300 transition disabled:opacity-50 disabled:cursor-not-allowed w-full md:w-auto"
           >
             Prev
           </button>
 
-          <p className="text-sm">
+          <p className="text-sm text-gray-800">
             Page {page} of {totalPages}
           </p>
 
           <button
             disabled={page === totalPages}
             onClick={() => fetchSessions(page + 1)}
-            className="px-4 py-2 rounded-lg bg-slate-200 cursor-pointer hover:bg-slate-300 transition disabled:opacity-50 disabled:cursor-not-allowed w-full md:w-auto"
+            className="px-4 py-2 rounded-lg bg-slate-200 text-gray-800 cursor-pointer hover:bg-slate-300 transition disabled:opacity-50 disabled:cursor-not-allowed w-full md:w-auto"
           >
             Next
           </button>

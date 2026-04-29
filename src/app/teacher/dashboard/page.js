@@ -107,7 +107,7 @@ export default function TeacherDashboard() {
 
           <div className="bg-white p-4 rounded-lg shadow">
             <p className="text-gray-500 text-sm">Logged-in Teacher</p>
-            <p className="text-xl font-bold">
+            <p className="text-xl font-bold text-[#0a1f44]">
               {staff?.firstName} {staff?.lastName}
             </p>
             <p className="text-sm text-gray-600">
@@ -117,7 +117,7 @@ export default function TeacherDashboard() {
 
           <div className="bg-white p-4 rounded-lg shadow">
             <p className="text-gray-500 text-sm">Academic Session</p>
-            <p className="text-xl font-bold">{currentSession}</p>
+            <p className="text-xl font-bold text-[#0a1f44]">{currentSession}</p>
             <p className="text-gray-600 text-sm mt-1">
               Current Term: {currentTerm}
             </p>
@@ -134,18 +134,18 @@ export default function TeacherDashboard() {
 
         {/* TEACHER DETAILS */}
         <div className="bg-white p-4 rounded-lg shadow">
-          <h2 className="text-lg font-bold mb-2">Teacher Details</h2>
+          <h2 className="text-lg font-bold mb-2 text-[#0a1f44]">Teacher Details</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
 
-            <p>
-              <b>Full Name:</b>{" "}
+            <p className="text-gray-700">
+              <b>Full Name:</b>{" "} 
               {staff?.title} {staff?.firstName} {staff?.otherName} {staff?.lastName}
             </p>
 
-            <p><b>Role:</b> {staff?.role}</p>
-            <p><b>Email:</b> {staff?.email}</p>
-            <p><b>Phone:</b> {staff?.phone}</p>
+            <p className="text-gray-700"><b>Role:</b> {staff?.role}</p>
+            <p className="text-gray-700"><b>Email:</b> {staff?.email}</p>
+            <p className="text-gray-700"><b>Phone:</b> {staff?.phone}</p>
 
           </div>
         </div>

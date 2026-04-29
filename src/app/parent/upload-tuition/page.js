@@ -276,11 +276,11 @@ useEffect(() => {
           value={form.amount}
           onChange={handleChange}
           placeholder="Amount Paid"
-          className="input border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-200 hover:border-blue-300 transition"
+          className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-800 placeholder:text-slate-500 outline-none hover:border-cyan-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-200 transition"
         />
 
         {/* FILE */}
-        <input type="file" accept="image/*" onChange={handleFile} />
+        <input type="file" className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-800 placeholder:text-slate-500 outline-none hover:border-cyan-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-200 transition" accept="image/*" onChange={handleFile} />
 
         <button className="bg-[#0a1f44] text-white px-4 py-2 rounded cursor-pointer">
           {loading ? "Uploading..." : "Submit"}
@@ -289,16 +289,16 @@ useEffect(() => {
       </form>
 
       {/* HISTORY */}
-      <div className="bg-white p-5 rounded-xl">
-        <h2 className="font-bold mb-3">Upload History</h2>
+      <div className="bg-white p-5 rounded-xl"> 
+        <h2 className="font-bold mb-3 text-[#0a1f44]">Upload History</h2>
 
         {receipts.length === 0 ? (
-          <p>No uploads yet</p>
+          <p className="text-gray-800">No uploads yet</p>
         ) : (
           receipts.map((r, i) => (
-            <div key={i} className="border-b py-2 text-sm flex justify-between">
+            <div key={i} className=" text-gray-800 border-b py-2 text-sm flex justify-between">
 
-              <div>
+              <div className="text-gray-800">
                 {r.student?.studentId} - {r.student?.firstName} <br />
                 {r.session} - {r.term} <br />
                 ₦{r.amount}

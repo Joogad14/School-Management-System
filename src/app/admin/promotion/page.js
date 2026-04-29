@@ -209,7 +209,7 @@ useEffect(() => {
             setSearch(e.target.value);
             setCurrentPage(1);
           }}
-          className="w-full p-3 rounded-xl border border-slate-200 bg-white text-gray-700 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition duration-200 hover:border-blue-300"
+          className="w-full p-3 rounded-xl border border-slate-200 bg-white text-gray-800 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition duration-200 hover:border-blue-300"
         />
 
       </div>
@@ -247,7 +247,7 @@ useEffect(() => {
                     key={s._id}
                     className="border-t hover:bg-blue-50 transition"
                   >
-                    <td className="p-3 font-medium">
+                    <td className="p-3 font-medium text-gray-800">
                       {s.firstName} {s.lastName}
                     </td>
 
@@ -315,19 +315,19 @@ useEffect(() => {
           <button
             disabled={currentPage === 1}
             onClick={() => setCurrentPage((p) => p - 1)}
-            className="px-3 py-1 border rounded disabled:opacity-50 cursor-pointer"
+            className="px-3 py-1 border rounded disabled:opacity-50 text-gray-800 cursor-pointer"
           >
             Prev
           </button>
 
-          <span>
+          <span className="text-gray-800">
             Page {currentPage} of {totalPages || 1}
           </span>
 
           <button
             disabled={currentPage === totalPages || totalPages === 0}
             onClick={() => setCurrentPage((p) => p + 1)}
-            className="px-3 py-1 border rounded disabled:opacity-50 cursor-pointer"
+            className="px-3 py-1 border rounded disabled:opacity-50 cursor-pointertext-gray-800"
           >
             Next
           </button>

@@ -181,7 +181,7 @@ const filteredStudents = students.filter((s) => {
       placeholder="Search student..."
       value={search}
       onChange={(e) => setSearch(e.target.value)}
-      className="w-full md:w-64 px-4 py-2 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-400 outline-none"
+      className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-800 placeholder:text-slate-500 outline-none hover:border-cyan-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-200 transition"
     />
   </div>
 

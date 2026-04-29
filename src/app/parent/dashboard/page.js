@@ -101,7 +101,7 @@ export default function ParentDashboard() {
 
           {/* PARENT INFO */}
           <div className="bg-white p-4 rounded-lg shadow">
-            <p className="text-gray-500 text-sm">Parent</p>
+            <p className="text-gray-500 text-sm">Parent</p> 
             <p className="text-xl font-bold text-[#0a1f44]">
               {parent?.firstName} {parent?.lastName}
             </p>
@@ -136,14 +136,14 @@ export default function ParentDashboard() {
 
         {/* DETAILS (same as student style) */}
         <div className="bg-white p-4 rounded-lg shadow">
-          <h2 className="text-lg font-bold mb-3">Parent Details</h2>
+          <h2 className="text-lg font-bold mb-3 text-gray-700">Parent Details</h2>
 
           <div className="grid md:grid-cols-2 gap-3 text-sm">
 
-            <p><b>Email:</b> {parent?.email || "N/A"}</p>
-            <p><b>Phone:</b> {parent?.phone || "N/A"}</p>
-            <p><b>Address:</b> {parent?.address || "N/A"}</p>
-            <p><b>Parent ID:</b> {parent?.parentId}</p>
+            <p className="text-[#0a1f44]"><b>Email:</b> {parent?.email || "N/A"}</p>
+            <p className="text-[#0a1f44]"><b>Phone:</b> {parent?.phone || "N/A"}</p>
+            <p className="text-[#0a1f44]"><b>Address:</b> {parent?.address || "N/A"}</p>
+            <p className="text-[#0a1f44]"><b>Parent ID:</b> {parent?.parentId}</p>
 
           </div>
         </div>

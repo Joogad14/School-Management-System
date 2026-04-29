@@ -171,7 +171,11 @@ export default function SessionTermPage() {
           <option value="Summer Term">Summer Term</option>
         </select>
 
-        <input
+        <div className="w-full">
+  <label className="block text-sm font-medium text-gray-700 mb-1">
+    From
+  </label>
+  <input
           type="date"
           name="from" 
           placeholder="From e.g 04/14/2026"
@@ -187,8 +191,13 @@ export default function SessionTermPage() {
 
         appearance-none"
         />
+</div>
 
-        <input
+<div className="w-full mt-4">
+  <label className="block text-sm font-medium text-gray-700 mb-1">
+    To
+  </label>
+      <input
           type="date"
           name="to"
           placeholder="To e.g 04/30/2026"
@@ -204,6 +213,7 @@ export default function SessionTermPage() {
 
           appearance-none"
         />
+</div>
 
         <button
           onClick={handleSubmit}

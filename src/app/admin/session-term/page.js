@@ -177,7 +177,15 @@ export default function SessionTermPage() {
           placeholder="From e.g 04/14/2026"
           value={form.from}
           onChange={handleChange}
-          className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-800 placeholder:text-slate-500 outline-none hover:border-cyan-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-200 transition"
+         className="w-full px-4 py-3 rounded-xl 
+        border border-slate-300 
+        bg-slate-50 text-slate-800
+        outline-none transition
+
+        hover:border-slate-400
+        focus:bg-slate-50 focus:border-blue-500 focus:ring-2 focus:ring-blue-200
+
+        appearance-none"
         />
 
         <input
@@ -186,7 +194,15 @@ export default function SessionTermPage() {
           placeholder="To e.g 04/30/2026"
           value={form.to}
           onChange={handleChange}
-          className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-800 placeholder:text-slate-500 outline-none hover:border-cyan-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-200 transition"
+          className="w-full px-4 py-3 rounded-xl 
+          border border-slate-300 
+          bg-slate-50 text-slate-800
+          outline-none transition
+
+          hover:border-slate-400
+          focus:bg-slate-50 focus:border-blue-500 focus:ring-2 focus:ring-blue-200
+
+          appearance-none"
         />
 
         <button

@@ -173,7 +173,8 @@ export default function SessionTermPage() {
 
         <input
           type="date"
-          name="from"
+          name="from" 
+          placeholder="From e.g 04/14/2026"
           value={form.from}
           onChange={handleChange}
           className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-800 placeholder:text-slate-500 outline-none hover:border-cyan-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-200 transition"
@@ -182,6 +183,7 @@ export default function SessionTermPage() {
         <input
           type="date"
           name="to"
+          placeholder="To e.g 04/30/2026"
           value={form.to}
           onChange={handleChange}
           className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-800 placeholder:text-slate-500 outline-none hover:border-cyan-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-200 transition"

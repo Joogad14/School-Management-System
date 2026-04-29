@@ -133,7 +133,7 @@ export default function TuitionApprovalPage() {
 
           <tbody>
             {filteredReceipts.map((r, i) => (
-              <tr key={r._id} className="border-t hover:bg-blue-50">
+              <tr key={r._id} className="border-t hover:bg-blue-50 text-gray-800">
 
                 <td className="p-3 text-gray-800">{i + 1}</td>
 

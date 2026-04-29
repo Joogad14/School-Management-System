@@ -200,7 +200,7 @@ export default function ParentPage() {
             name="parentTitle"
             value={form.parentTitle}
             onChange={handleChange}
-            className="w-full p-3 rounded-xl border border-gray-400 bg-white  text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            className="w-full p-3 rounded-xl border border-slate-200 bg-white text-gray-700 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition duration-200 hover:border-blue-300"
           >
             <option value="">Select Title</option>
             <option>Mr</option>
@@ -215,7 +215,7 @@ export default function ParentPage() {
             value={form.parentFirstName}
             onChange={handleChange}
             placeholder="First Name"
-            className="w-full p-3 rounded-xl border border-gray-400 bg-white  text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-800 placeholder:text-slate-500 outline-none hover:border-cyan-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-200 transition"
           />
 
           <input
@@ -224,7 +224,7 @@ export default function ParentPage() {
             onChange={handleChange}
             required
             placeholder="Last Name"
-            className="w-full p-3 rounded-xl border border-gray-400 bg-white  text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-800 placeholder:text-slate-500 outline-none hover:border-cyan-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-200 transition"
           />
 
           <input
@@ -233,7 +233,7 @@ export default function ParentPage() {
             required
             onChange={handleChange}
             placeholder="Email"
-            className="w-full p-3 rounded-xl border border-gray-400 bg-white  text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-800 placeholder:text-slate-500 outline-none hover:border-cyan-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-200 transition"
           />
 
           <input
@@ -241,7 +241,7 @@ export default function ParentPage() {
             value={form.parentPhone}
             onChange={handleChange}
             placeholder="Phone"
-            className="w-full p-3 rounded-xl border border-gray-400 bg-white  text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-800 placeholder:text-slate-500 outline-none hover:border-cyan-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-200 transition"
           />
 
           <input
@@ -249,7 +249,7 @@ export default function ParentPage() {
             value={form.parentAddress}
             onChange={handleChange}
             placeholder="Address"
-            className="w-full p-3 rounded-xl border border-gray-400 bg-white  text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-800 placeholder:text-slate-500 outline-none hover:border-cyan-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-200 transition"
           />
 
            <div className="relative">
@@ -259,7 +259,7 @@ export default function ParentPage() {
                         onChange={handleChange}
                         type={showPassword ? "text" : "password"}   // ✅ FIXED
                         placeholder="Password"
-                        className="w-full p-3 rounded-xl border border-gray-400 bg-white  text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                        className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-800 placeholder:text-slate-500 outline-none hover:border-cyan-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-200 transition"
                     />
 
                     <button
@@ -278,7 +278,7 @@ export default function ParentPage() {
                         onChange={handleChange}
                         type={showConfirmPassword ? "text" : "password"} // ✅ FIXED
                         placeholder="Confirm Password"
-                        className="w-full p-3 rounded-xl border border-gray-400 bg-white  text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                        className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-800 placeholder:text-slate-500 outline-none hover:border-cyan-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-200 transition"
                     />
 
                     <button
@@ -311,7 +311,7 @@ export default function ParentPage() {
         placeholder="Search parent by name, ID, email, phone..."
         value={search}
         onChange={(e) => setSearch(e.target.value)}
-        className="w-full p-3 rounded-xl border border-gray-400 bg-white  text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+        className="w-full p-3 rounded-xl border border-slate-200 bg-white text-gray-700 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition duration-200 hover:border-blue-300"
       />
 
 
@@ -331,7 +331,7 @@ export default function ParentPage() {
 
           <tbody>
             {filteredParents.map((p, i) => (
-              <tr key={p._id} className="border-t border-gray-300">
+              <tr key={p._id} className="border-t border-gray-800">
                 <td className="p-3 text-gray-800">{i + 1}</td>
                 <td className="p-3 text-blue-600 font-semibold">{p.parentId}</td>
                 <td className="p-3 text-gray-800">

@@ -215,10 +215,10 @@ useEffect(() => {
       </div>
 
       {/* TABLE */}
-      <div className="bg-white rounded-2xl shadow overflow-hidden">
+      <div className="bg-white rounded-2xl shadow-lg overflow-x-auto">
 
         {loading ? (
-          <p className="text-center py-6">Loading students...</p>
+          <p className="text-center py-6 text-gray-600">Loading students...</p>
         ) : (
           <table className="w-full text-sm">
 
@@ -251,7 +251,7 @@ useEffect(() => {
                       {s.firstName} {s.lastName}
                     </td>
 
-                    <td className="p-3 text-gray-500">{s.studentId}</td>
+                    <td className="p-3 text-gray-600">{s.studentId}</td>
 
                     <td className="p-3 text-blue-600 font-semibold text-center">
                     {resultsMap[s._id]?.first != null
@@ -327,7 +327,7 @@ useEffect(() => {
           <button
             disabled={currentPage === totalPages || totalPages === 0}
             onClick={() => setCurrentPage((p) => p + 1)}
-            className="px-3 py-1 border rounded disabled:opacity-50 cursor-pointertext-gray-800"
+            className="px-3 py-1 border rounded disabled:opacity-50 cursor-pointer text-gray-800"
           >
             Next
           </button>

@@ -240,7 +240,7 @@ return (
       </div>
 
       {/* FORM */}
-      <div bg-white p-6 rounded-2xl shadow-lg border border-gray-300>
+      <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-300">
         <form onSubmit={handleSubmit} className="space-y-3">
 
           <select name="title" value={form.title} onChange={handleChange} className="w-full p-3 rounded-xl border border-slate-200 bg-white text-gray-700 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition duration-200 hover:border-blue-300">
@@ -252,22 +252,22 @@ return (
             <option>Prof</option>
           </select>
 
-          <input name="firstName" placeholder="First Name" value={form.firstName} onChange={handleChange} className="w-full p-3 rounded-xl border border-gray-400 bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"/>
-          <input name="otherName" placeholder="Other Name" value={form.otherName} onChange={handleChange} className="w-full p-3 rounded-xl border border-gray-400 bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"/>
-          <input name="lastName" placeholder="Last Name" value={form.lastName} onChange={handleChange} className="w-full p-3 rounded-xl border border-gray-400 bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"/>
-          <input name="email" placeholder="Email" value={form.email} onChange={handleChange} className="w-full p-3 rounded-xl border border-gray-400 bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"/>
+          <input name="firstName" placeholder="First Name" value={form.firstName} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-800 placeholder:text-slate-500 outline-none hover:border-cyan-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-200 transition"/>
+          <input name="otherName" placeholder="Other Name" value={form.otherName} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-800 placeholder:text-slate-500 outline-none hover:border-cyan-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-200 transition"/>
+          <input name="lastName" placeholder="Last Name" value={form.lastName} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-800 placeholder:text-slate-500 outline-none hover:border-cyan-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-200 transition"/>
+          <input name="email" placeholder="Email" value={form.email} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-800 placeholder:text-slate-500 outline-none hover:border-cyan-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-200 transition"/>
 
           {/* PASSWORD */}
           <div className="relative">
             <input
               type={showPassword ? "text" : "password"}
               name="password"
-              className="w-full p-3 rounded-xl border border-gray-400 bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-800 placeholder:text-slate-500 outline-none hover:border-cyan-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-200 transition"
               placeholder="Password"
               value={form.password}
               onChange={handleChange}
             />
-            <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-600 cursor-pointer hover:text-cyan-600">
+            <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 cursor-pointer hover:text-cyan-600">
               {showPassword ? <EyeOff /> : <Eye />}
             </button>
           </div>
@@ -277,12 +277,12 @@ return (
             <input
               type={showConfirmPassword ? "text" : "password"}
               name="confirmPassword"
-              className="w-full p-3 rounded-xl border border-gray-400 bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-800 placeholder:text-slate-500 outline-none hover:border-cyan-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-200 transition"
               placeholder="Confirm Password"
               value={form.confirmPassword}
               onChange={handleChange}
             />
-            <button type="button" onClick={() => setShowConfirmPassword(!showConfirmPassword)} className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-600 cursor-pointer hover:text-cyan-600">
+            <button type="button" onClick={() => setShowConfirmPassword(!showConfirmPassword)} className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 cursor-pointer hover:text-cyan-600">
               {showConfirmPassword ? <EyeOff /> : <Eye />}
             </button>
           </div>
@@ -311,8 +311,8 @@ return (
       </div>
 
       {/* TABLE */}
-      <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-        <table className="w-full text-sm text-gray-800">
+      <div className="bg-white rounded-2xl shadow-lg overflow-x-auto">
+        <table className="min-w-[700px] w-full text-sm text-gray-800">
           <thead className="bg-slate-200 text-gray-800">
             <tr>
               <th className="p-3">S/N</th>
@@ -337,8 +337,8 @@ return (
             );
           })
           .map((a, i) => (
-              <tr key={a._id} className="border-t text-gray-300">
-                <td className="p-3">{i + 1}</td>
+              <tr key={a._id} className="border-t text-gray-800">
+                <td className="p-3 text-gray-800">{i + 1}</td>
 
                 {/*  ADMIN ID FIXED */}
                 <td className="p-3 text-blue-600 font-semibold">

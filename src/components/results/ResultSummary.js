@@ -54,7 +54,7 @@ export default function ResultSummary({
 
     {/* DAYS OPEN */}
     <div className="bg-white p-3 rounded-lg border border-slate-100 shadow-sm">
-      <label className="text-xs text-gray-500 uppercase">
+      <label className="text-xs text-gray-700 uppercase">
         Days Open
       </label>
 
@@ -67,13 +67,18 @@ export default function ResultSummary({
             daysOpen: Number(e.target.value),
           })
         }
-        className="mt-2 w-full text-lg font-semibold border border-slate-200 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-400 outline-none bg-slate-50"
+        className="mt-2 w-full text-lg font-semibold 
+        border border-blue-200 
+        rounded-lg px-3 py-2 
+        bg-blue-50 text-blue-800
+        focus:bg-blue-50 focus:border-blue-400 focus:ring-2 focus:ring-blue-300
+        outline-none transition"
       />
     </div>
 
     {/* DAYS PRESENT */}
     <div className="bg-white p-3 rounded-lg border border-slate-100 shadow-sm">
-      <label className="text-xs text-gray-500 uppercase">
+      <label className="text-xs text-gray-700 uppercase">
         Days Present
       </label>
 
@@ -86,7 +91,12 @@ export default function ResultSummary({
             daysPresent: Number(e.target.value),
           })
         }
-        className="mt-2 w-full text-lg font-semibold border border-slate-200 rounded-lg px-3 py-2 focus:ring-2 focus:ring-green-400 outline-none bg-slate-50"
+        className="mt-2 w-full text-lg font-semibold 
+        border border-green-200 
+        rounded-lg px-3 py-2 
+        bg-green-50 text-green-800
+        focus:bg-green-50 focus:border-green-400 focus:ring-2 focus:ring-green-300
+        outline-none transition"
       />
     </div>
 

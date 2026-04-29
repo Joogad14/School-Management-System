@@ -243,14 +243,14 @@ const filteredStudents = students.filter((s) => {
       {/* FORM */}
       <div className="bg-white p-6 rounded-2xl shadow space-y-4">
 
-        <h2 className="font-semibold text-lg">Student Details</h2>
+        <h2 className="font-semibold text-lg text-[#0a1f44]">Student Details</h2>
 
-        <input name="firstName" value={form.firstName} onChange={handleChange} placeholder="First Name" className="input border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-200 hover:border-blue-300 transition" />
-        <input name="otherName" value={form.otherName} onChange={handleChange} placeholder="Other Name" className="input border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-200 hover:border-blue-300 transition" />
-        <input name="lastName" value={form.lastName} onChange={handleChange} placeholder="Last Name" className="input border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-200 hover:border-blue-300 transition" />
-        <input name="email" value={form.email} onChange={handleChange} placeholder="Email" className="input border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-200 hover:border-blue-300 transition" />
+        <input name="firstName" value={form.firstName} onChange={handleChange} placeholder="First Name" className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-800 placeholder:text-slate-500 outline-none hover:border-cyan-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-200 transition" />
+        <input name="otherName" value={form.otherName} onChange={handleChange} placeholder="Other Name" className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-800 placeholder:text-slate-500 outline-none hover:border-cyan-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-200 transition" />
+        <input name="lastName" value={form.lastName} onChange={handleChange} placeholder="Last Name" className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-800 placeholder:text-slate-500 outline-none hover:border-cyan-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-200 transition" />
+        <input name="email" value={form.email} onChange={handleChange} placeholder="Email" className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-800 placeholder:text-slate-500 outline-none hover:border-cyan-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-200 transition" />
 
-        <input type="file" name="profileImage" onChange={handleChange} className="input border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-200 hover:border-blue-300 transition" />
+        <input type="file" name="profileImage" onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-800 placeholder:text-slate-500 outline-none hover:border-cyan-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-200 transition" />
 
         {preview && <img src={preview} className="w-24 h-24 rounded-full mx-auto" />}
 
@@ -287,7 +287,7 @@ const filteredStudents = students.filter((s) => {
         {/* TEACHERS */}
         {selectedTeachers.length > 0 && (
           <div className="bg-slate-100 p-3 rounded-lg">
-            <p className="text-sm font-semibold">Assigned Teacher(s):</p>
+            <p className="text-sm font-semibold text-gray-800">Assigned Teacher(s):</p>
             {selectedTeachers.map((t, i) => (
               <p key={i} className="text-[#0a1f44] font-semibold">
                 {t.title} {t.lastName}
@@ -329,7 +329,7 @@ const filteredStudents = students.filter((s) => {
 
         {/* PASSWORD */}
         <div className="relative">
-          <input type={showPassword ? "text" : "password"} name="password" onChange={handleChange} className="input pr-10 border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-200 hover:border-blue-300 transition" />
+          <input type={showPassword ? "text" : "password"} name="password" onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-800 placeholder:text-slate-500 outline-none hover:border-cyan-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-200 transition" />
           <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 cursor-pointer hover:text-cyan-600">
             {showPassword ? <EyeOff /> : <Eye />}
           </button>
@@ -337,7 +337,7 @@ const filteredStudents = students.filter((s) => {
 
         {/* CONFIRM */}
         <div className="relative">
-          <input type={showConfirmPassword ? "text" : "password"} name="confirmPassword" onChange={handleChange} className="input pr-10 border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-200 hover:border-blue-300 transition" />
+          <input type={showConfirmPassword ? "text" : "password"} name="confirmPassword" onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-800 placeholder:text-slate-500 outline-none hover:border-cyan-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-200 transition" />
           <button type="button" onClick={() => setShowConfirmPassword(!showConfirmPassword)} className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 cursor-pointer hover:text-cyan-600">
             {showConfirmPassword ? <EyeOff /> : <Eye />}
           </button>
@@ -363,37 +363,37 @@ const filteredStudents = students.filter((s) => {
               
       {/* TABLE */}
       <div className="bg-white rounded-2xl shadow overflow-x-auto">
-        <table className="w-full text-sm">
+        <table className="min-w-[700px] w-full text-sm text-gray-800">
 
-          <thead className="bg-slate-200">
+          <thead className="bg-slate-200 text-gray-800">
             <tr>
-              <th className="p-3">S/N</th>
-              <th className="p-3">Student</th>
-              <th className="p-3">Student ID</th>
-              <th className="p-3">Class</th>
+              <th className="p-3 text-gray-800">S/N</th>
+              <th className="p-3 text-gray-800">Student</th>
+              <th className="p-3 text-gray-800">Student ID</th>
+              <th className="p-3 text-gray-800">Class</th>
 
               {/* ✅ PARENT INFO (FROM POPULATED DATA) */}
-              <th className="p-3">Parent Name</th>
-              <th className="p-3">Parent ID</th>
-              <th className="p-3">Parent Email</th>
-              <th className="p-3">Parent Phone</th>
-              <th className="p-3">Action</th>
+              <th className="p-3 text-gray-800">Parent Name</th>
+              <th className="p-3 text-gray-800">Parent ID</th>
+              <th className="p-3 text-gray-800">Parent Email</th>
+              <th className="p-3 text-gray-800">Parent Phone</th>
+              <th className="p-3 text-gray-800">Action</th>
             </tr>
           </thead>
 
           <tbody>
             {filteredStudents.map((s, i) => (
-              <tr key={s._id} className="border-t">
+              <tr key={s._id} className="border-t text-gray-800">
 
-                <td className="p-3">{i + 1}</td>
-                <td className="p-3">{s.firstName} {s.lastName}</td>
+                <td className="p-3 text-gray-800">{i + 1}</td>
+                <td className="p-3 text-gray-800">{s.firstName} {s.lastName}</td>
                 <td className="p-3 text-blue-600">{s.studentId}</td>
-                <td className="p-3">
+                <td className="p-3 text-gray-800">
                     {s.currentClass?.className || s.currentClass || "-"}
                     </td>
 
                 {/* ✅ PARENT DATA (ONLY WORKS IF POPULATED) */}
-                <td className="p-3">
+                <td className="p-3 text-gray-800">
                     {s.parent
                         ? `${s.parent.title || ""} ${s.parent.lastName || ""}`
                         : "-"}
@@ -402,11 +402,11 @@ const filteredStudents = students.filter((s) => {
                   {s.parent?.parentId || "-"}
                 </td>
 
-                <td className="p-3">
+                <td className="p-3 text-gray-800">
                   {s.parent?.email || "-"}
                 </td>
 
-                <td className="p-3">
+                <td className="p-3 text-gray-800">
                   {s.parent?.phone || "-"}
                 </td>
 

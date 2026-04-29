@@ -76,7 +76,7 @@ const type = searchParams.get("type") || "";
     <div className="bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden">
 
       <div className="px-5 py-4 border-b bg-slate-50">
-        <h2 className="font-semibold text-centre text-gray-700">Result Statement</h2>
+        <h2 className="font-semibold text-centre text-gray-700">Statement of Result </h2>
       </div>
 
       <div className="overflow-x-auto">
@@ -125,27 +125,27 @@ const type = searchParams.get("type") || "";
                   (f) => f.subjectName === s.subjectName
                 )?.total || 0;
 
-              return (
+              return ( 
                 <tr
                   key={i}
-                  className="border-t hover:bg-slate-50 transition"
+                  className="border-t text-gray-800 hover:bg-slate-50 transition"
                 >
-                  <td className="p-3">{s.subjectCode}</td>
-                  <td className="p-3 font-medium">{s.subjectName}</td>
+                  <td className="p-3 text-gray-800">{s.subjectCode}</td>
+                  <td className="p-3 text-gray-800 font-medium">{s.subjectName}</td>
 
-                  <td className="p-3 text-center">{s.ca1}</td>
-                  <td className="p-3 text-center">{s.ca2}</td>
+                  <td className="p-3 text-gray-800 text-center">{s.ca1}</td>
+                  <td className="p-3 text-gray-800text-center">{s.ca2}</td>
 
                   {type === "CA" && (
-                    <td className="p-3 text-center font-semibold text-blue-600">
+                    <td className="p-3 text-gray-800 text-center font-semibold text-blue-600">
                       {s.total}
                     </td>
                   )}
 
                   {type === "EXAM" && term !== "3rd Term" && (
                     <>
-                      <td className="p-3 text-center">{s.exam}</td>
-                      <td className="p-3 text-center font-semibold text-blue-600">
+                      <td className="p-3 text-gray-800 text-center">{s.exam}</td>
+                      <td className="p-3 text-gray-800 text-center font-semibold text-blue-600">
                         {s.total}
                       </td>
                     </>
@@ -153,9 +153,9 @@ const type = searchParams.get("type") || "";
 
                   {type === "EXAM" && term === "3rd Term" && (
                     <>
-                      <td className="p-3 text-center">{s.exam}</td>
-                      <td className="p-3 text-center">{firstTerm}</td>
-                      <td className="p-3 text-center">{secondTerm}</td>
+                      <td className="p-3 text-gray-800 text-center">{s.exam}</td>
+                      <td className="p-3 text-gray-800 text-center">{firstTerm}</td>
+                      <td className="p-3 text-gray-800 text-center">{secondTerm}</td>
                       <td className="p-3 text-center font-semibold text-blue-600">
                         {s.average}
                       </td>
@@ -213,21 +213,21 @@ const type = searchParams.get("type") || "";
     <div className="grid md:grid-cols-2 gap-4">
 
       <div className="bg-white p-5 rounded-2xl shadow border border-slate-100">
-        <p className="text-xs text-gray-500 mb-2 uppercase">
+        <p className="text-xs text-gray-800 mb-2 uppercase">
           Teacher's Comment
         </p>
 
-        <p className="text-sm text-gray-700 leading-relaxed">
+        <p className="text-sm text-gray-800 leading-relaxed">
           {comments.teacherComment || "No comment provided"}
         </p>
       </div>
 
       <div className="bg-white p-5 rounded-2xl shadow border border-slate-100">
-        <p className="text-xs text-gray-500 mb-2 uppercase">
+        <p className="text-xs text-gray-800 mb-2 uppercase">
           Director's Comment
         </p>
 
-        <p className="text-sm text-gray-700 leading-relaxed">
+        <p className="text-sm text-gray-800 leading-relaxed">
           {comments.directorComment || "No comment provided"}
         </p>
       </div>

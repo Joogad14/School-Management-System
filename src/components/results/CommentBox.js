@@ -34,7 +34,12 @@ export default function CommentBox({ comments, setComments }) {
                 teacherComment: e.target.value,
               }))
             }
-            className="w-full mt-2 border border-slate-200 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-400 outline-none resize-none bg-white"
+            className="w-full mt-2 
+            border border-blue-200 
+            rounded-lg px-3 py-2 
+            bg-blue-50 text-gray-800
+            focus:bg-blue-50 focus:border-blue-400 focus:ring-2 focus:ring-blue-300
+            outline-none resize-none transition"
           />
         </div>
 
@@ -61,7 +66,12 @@ export default function CommentBox({ comments, setComments }) {
                 directorComment: e.target.value,
               }))
             }
-            className="w-full mt-2 border border-slate-200 rounded-lg px-3 py-2 focus:ring-2 focus:ring-purple-400 outline-none resize-none bg-white"
+            className="w-full mt-2 
+            border border-purple-200 
+            rounded-lg px-3 py-2 
+            bg-purple-50 text-gray-800
+            focus:bg-purple-50 focus:border-purple-400 focus:ring-2 focus:ring-purple-300
+            outline-none resize-none transition"
           />
         </div>
 

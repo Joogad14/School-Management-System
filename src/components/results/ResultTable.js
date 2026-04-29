@@ -86,7 +86,7 @@ export default function ResultTable({
                   onChange={(e) =>
                     handleChange(i, "ca1", e.target.value)
                   }
-                  className="w-16 text-center border border-slate-200 rounded-lg px-2 py-1 focus:ring-2 focus:ring-blue-400 outline-none bg-slate-50"
+                  className="w-16 text-center border border-gray-300 rounded-md px-2 py-1  bg-white text-gray-900 font-semibold focus:ring-2 focus:ring-blue-500 focus:border-blue-500   hover:border-blue-400 outline-none transition"
                 />
               </td>
 
@@ -97,7 +97,7 @@ export default function ResultTable({
                   onChange={(e) =>
                     handleChange(i, "ca2", e.target.value)
                   }
-                  className="w-16 text-center border border-slate-200 rounded-lg px-2 py-1 focus:ring-2 focus:ring-blue-400 outline-none bg-slate-50"
+                  className="w-16 text-center border border-gray-300 rounded-md px-2 py-1  bg-white text-gray-900 font-semibold focus:ring-2 focus:ring-blue-500 focus:border-blue-500   hover:border-blue-400 outline-none transition"
                 />
               </td>
 
@@ -110,7 +110,7 @@ export default function ResultTable({
                       onChange={(e) =>
                         handleChange(i, "exam", e.target.value)
                       }
-                      className="w-16 text-center border border-slate-200 rounded-lg px-2 py-1 focus:ring-2 focus:ring-blue-400 outline-none bg-slate-50"
+                      className="w-16 text-center border border-gray-300 rounded-md px-2 py-1  bg-white text-gray-900 font-semibold focus:ring-2 focus:ring-blue-500 focus:border-blue-500   hover:border-blue-400 outline-none transition"
                     />
                   </td>
 
@@ -129,7 +129,7 @@ export default function ResultTable({
                       onChange={(e) =>
                         handleChange(i, "exam", e.target.value)
                       }
-                      className="w-16 text-center border border-slate-200 rounded-lg px-2 py-1 focus:ring-2 focus:ring-blue-400 outline-none bg-slate-50"
+                      className="w-16 text-center border border-gray-300 rounded-md px-2 py-1  bg-white text-gray-900 font-semibold focus:ring-2 focus:ring-blue-500 focus:border-blue-500   hover:border-blue-400 outline-none transition"
                     />
                   </td>
 

@@ -287,8 +287,8 @@ const fetchClasses = async () => {
       </div>
 
       {/* TABLE */}
-      <div className="bg-white rounded-2xl overflow-hidden">
-        <table className="w-full text-sm text-gray-800">
+      <div className="bg-white rounded-2xl shadow-lg overflow-x-auto">
+        <table className="min-w-[700px] w-full text-sm text-gray-800">
           <thead className="bg-slate-200 text-gray-800">
             <tr>
               <th className="p-3">S/N</th>

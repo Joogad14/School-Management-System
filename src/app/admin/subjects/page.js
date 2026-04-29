@@ -238,7 +238,7 @@ export default function SubjectPage() {
 
       {/* TABLE */}
       <div className="bg-white rounded-2xl overflow-x-auto">
-        <table className="w-full text-sm">
+        <table className="min-w-[700px] w-full text-sm text-gray-800">
           <thead className="bg-slate-200">
             <tr> 
             <th className="p-3 text-gray-800">S/N</th>
@@ -262,7 +262,7 @@ export default function SubjectPage() {
               );
             })
             .map((s, i) => (
-              <tr key={s._id} className="border-ttext-gray-800">
+              <tr key={s._id} className="border-t text-gray-800">
                 
                 <td className="p-3 text-gray-800">{i + 1}</td>
                 <td className="p-3 text-blue-600">{s.subjectCode}</td>

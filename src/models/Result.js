@@ -19,9 +19,11 @@ const subjectResultSchema = new mongoose.Schema({
 
   total: { type: Number, default: 0 },
 
-  average: { type: Number, default: 0 }, // ✅ ADD THIS
+  average: { type: Number, default: 0 }, 
 
   remark: { type: String, default: "" },
+  grade: { type: String, default: "" },       
+  position: { type: String, default: "" },      
 
   teachers: [
     {
@@ -79,6 +81,14 @@ const ResultSchema = new mongoose.Schema(
       enum: ["CA", "EXAM"],
       required: true,
     },
+
+    /* ===== STUDENT ACTIVITY ===== */
+    studentActivity: [
+  {
+    name: { type: String },
+    score: { type: Number, min: 1, max: 5 },
+  },
+],
 
     subjects: [subjectResultSchema],
 

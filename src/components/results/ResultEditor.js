@@ -7,6 +7,7 @@ import ReportHeader from "./ReportHeader";
 import ResultTable from "./ResultTable";
 import ResultSummary from "./ResultSummary";
 import CommentBox from "./CommentBox";
+import StudentActivity from "./StudentActivity";
 
 export default function ResultEditor({ studentId }) {
   const searchParams = useSearchParams();
@@ -15,6 +16,7 @@ export default function ResultEditor({ studentId }) {
   const [subjects, setSubjects] = useState([]);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
+  const [studentActivity, setStudentActivity] = useState([]);
 
   const [type, setType] = useState("CA");
   const [classId, setClassId] = useState("");
@@ -68,6 +70,8 @@ export default function ResultEditor({ studentId }) {
 
         // ✅ POSITION (IMPORTANT FIX)
         setPosition(savedResult?.position || "");
+
+        setStudentActivity(savedResult?.studentActivity || []);
 
         // COMMENTS
         setComments({
@@ -164,6 +168,19 @@ export default function ResultEditor({ studentId }) {
       }
     }
 
+    const getGrade = (score) => {
+      if (score >= 70) return "A";
+      if (score >= 60) return "B";
+      if (score >= 50) return "C";
+      if (score >= 45) return "D";
+      if (score >= 40) return "E";
+      return "F";
+    };
+
+    // ✅ ADD THIS
+    s.grade = getGrade(s.total || s.average || 0);
+
+    // EXISTING
     s.remark =
       s.average >= 70
         ? "Excellent"
@@ -269,6 +286,7 @@ const secondTermSubjects = subjects.map((s) => ({
       percentage,
       average,
       comments,
+      studentActivity,
     })
     });
 
@@ -344,6 +362,11 @@ const secondTermSubjects = subjects.map((s) => ({
         attendance={attendance}
         setAttendance={setAttendance}
         position={position}
+      />
+
+      <StudentActivity
+        activity={studentActivity}
+        setActivity={setStudentActivity}
       />
 
       <CommentBox comments={comments} setComments={setComments} />

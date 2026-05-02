@@ -17,6 +17,7 @@ export async function POST(req) {
       attendance,
       comments,
       classId,
+      studentActivity,
     } = body;
 
     // ================= CHECK IF RESULT EXISTS =================
@@ -42,6 +43,20 @@ export async function POST(req) {
         ? (totalObtained / totalObtainable) * 100
         : 0;
 
+        const getGrade = (score) => {
+      if (score >= 70) return "A";
+      if (score >= 60) return "B";
+      if (score >= 50) return "C";
+      if (score >= 45) return "D";
+      if (score >= 40) return "E";
+      return "F";
+    };
+
+    const updatedSubjects = subjects.map((s) => ({
+      ...s,
+      grade: getGrade(s.total || 0),
+    }));
+
     // ================= PAYLOAD =================
     const payload = {
   student: studentId,
@@ -50,7 +65,7 @@ export async function POST(req) {
   session,
   term,
   type,
-  subjects,
+  subjects: updatedSubjects,
 
   daysOpen: attendance.daysOpen,
   daysPresent: attendance.daysPresent,
@@ -79,7 +94,13 @@ export async function POST(req) {
     body.secondTermSubjects && body.secondTermSubjects.length > 0
       ? body.secondTermSubjects
       : result?.secondTermSubjects || [],
+
+      studentActivity:
+      Array.isArray(studentActivity) && studentActivity.length > 0
+        ? studentActivity
+        : result?.studentActivity || [],
 };
+
 
     // ================= CREATE OR UPDATE =================
     if (result) {
@@ -90,39 +111,87 @@ export async function POST(req) {
       result = await Result.create(payload);
     }
 
-    // ================= 🔥 POSITION LOGIC =================
+    // ================= 🔥 GENERAL POSITION =================
+const allResults = await Result.find({
+  class: classId,
+  session,
+  term,
+  type,
+}).sort({ percentage: -1 });
 
-    // 1️⃣ Get all results in same class/session/term/type
-    const allResults = await Result.find({
-      class: classId,
-      session,
-      term,
-      type,
-    }).sort({ percentage: -1 }); // highest first
+for (let i = 0; i < allResults.length; i++) {
+  let pos;
 
-    console.log("📊 TOTAL STUDENTS FOR POSITION:", allResults.length);
+  if (i === 0) pos = "1st";
+  else if (i === 1) pos = "2nd";
+  else if (i === 2) pos = "3rd";
+  else pos = `${i + 1}th`;
 
-    // 2️⃣ Assign positions
-    for (let i = 0; i < allResults.length; i++) {
-      let pos;
+  await Result.findByIdAndUpdate(allResults[i]._id, {
+    position: pos,
+  });
+}
 
-      if (i === 0) pos = "1st";
-      else if (i === 1) pos = "2nd";
-      else if (i === 2) pos = "3rd";
-      else pos = `${i + 1}th`;
+// ================= 🔥 SUBJECT POSITION =================
+for (let subjectIndex = 0; subjectIndex < updatedSubjects.length; subjectIndex++) {
 
-      await Result.findByIdAndUpdate(allResults[i]._id, {
-        position: pos,
-      });
-    }
+  const subjectId = updatedSubjects[subjectIndex].subject;
 
-    console.log("✅ POSITIONS UPDATED");
+  const subjectResults = await Result.find({
+    class: classId,
+    session,
+    term,
+    type,
+    "subjects.subject": subjectId,
+  });
 
-    return NextResponse.json({
-      success: true,
-      message: "Result saved and positions updated",
-      data: result,
-    });
+  subjectResults.sort((a, b) => {
+    const aScore =
+      a.subjects.find(
+        (s) => String(s.subject) === String(subjectId)
+      )?.total || 0;
+
+    const bScore =
+      b.subjects.find(
+        (s) => String(s.subject) === String(subjectId)
+      )?.total || 0;
+
+    return bScore - aScore;
+  });
+
+  for (let i = 0; i < subjectResults.length; i++) {
+    const current = subjectResults[i];
+
+    const subject = current.subjects.find(
+      (s) => String(s.subject) === String(subjectId)
+    );
+
+    if (!subject) continue;
+
+    let pos;
+    if (i === 0) pos = "1st";
+    else if (i === 1) pos = "2nd";
+    else if (i === 2) pos = "3rd";
+    else pos = `${i + 1}th`;
+
+    await Result.updateOne(
+      { _id: current._id, "subjects.subject": subjectId },
+      {
+        $set: {
+          "subjects.$.position": pos,
+          "subjects.$.grade": getGrade(subject.total || 0),
+        },
+      }
+    );
+  }
+}
+
+// ================= FINAL RESPONSE =================
+return NextResponse.json({
+  success: true,
+  message: "Result saved, positions & subject rankings updated",
+  data: result,
+});
 
   } catch (error) {
     console.log("🔥 ERROR:", error);

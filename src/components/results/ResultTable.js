@@ -55,6 +55,8 @@ export default function ResultTable({
               <th className="p-3 text-center">Total</th>
             )}
 
+            <th className="p-3 text-center">Grade</th>
+            <th className="p-3 text-center">Position</th>
             <th className="p-3 text-center">Remark</th>
           </tr>
         </thead>
@@ -165,6 +167,31 @@ export default function ResultTable({
                   {safe(s.total)}
                 </td>
               )}
+
+              
+               {/* GRADE */}
+              <td className="p-3 text-center">
+                <span
+                  className={`px-3 py-1 rounded-full text-xs font-semibold ${
+                    s.grade === "A"
+                      ? "bg-green-100 text-green-700"
+                      : s.grade === "B"
+                      ? "bg-blue-100 text-blue-700"
+                      : s.grade === "C"
+                      ? "bg-yellow-100 text-yellow-700"
+                      : "bg-red-100 text-red-600"
+                  }`}
+                >
+                  {s.grade || "-"}
+                </span>
+              </td>
+
+              {/* POSITION */}
+              <td className="p-3 text-center">
+                <span className="px-3 py-1 rounded-full text-xs font-semibold bg-purple-100 text-purple-700">
+                  {s.position || "-"}
+                </span>
+              </td>
 
               {/* REMARK */}
               <td className="p-3 text-center">

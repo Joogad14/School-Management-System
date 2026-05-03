@@ -43,19 +43,36 @@ export async function POST(req) {
         ? (totalObtained / totalObtainable) * 100
         : 0;
 
-        const getGrade = (score) => {
-      if (score >= 70) return "A";
-      if (score >= 60) return "B";
-      if (score >= 50) return "C";
-      if (score >= 45) return "D";
-      if (score >= 40) return "E";
-      return "F";
-    };
+        const getGrade = (score, type) => {
+  if (type === "CA") {
+    const percent = (score / 30) * 100;
 
-    const updatedSubjects = subjects.map((s) => ({
-      ...s,
-      grade: getGrade(s.total || 0),
-    }));
+    if (percent >= 70) return "A";
+    if (percent >= 60) return "B";
+    if (percent >= 50) return "C";
+    if (percent >= 45) return "D";
+    if (percent >= 40) return "E";
+    return "F";
+  } else {
+    // EXAM (over 100)
+    if (score >= 70) return "A";
+    if (score >= 60) return "B";
+    if (score >= 50) return "C";
+    if (score >= 45) return "D";
+    if (score >= 40) return "E";
+    return "F";
+  }
+};
+
+    const updatedSubjects = subjects.map((s) => {
+  const score = type === "CA" ? s.total : s.total;
+
+  return {
+    ...s,
+    grade: getGrade(score || 0, type),
+  };
+});
+
 
     // ================= PAYLOAD =================
     const payload = {
@@ -67,8 +84,8 @@ export async function POST(req) {
   type,
   subjects: updatedSubjects,
 
-  daysOpen: attendance.daysOpen,
-  daysPresent: attendance.daysPresent,
+  daysOpen: attendance?.daysOpen ?? result?.daysOpen ?? 0,
+  daysPresent: attendance?.daysPresent ?? result?.daysPresent ?? 0,
 
   totalObtained,
   totalObtainable,
@@ -179,7 +196,7 @@ for (let subjectIndex = 0; subjectIndex < updatedSubjects.length; subjectIndex++
       {
         $set: {
           "subjects.$.position": pos,
-          "subjects.$.grade": getGrade(subject.total || 0),
+          "subjects.$.grade": getGrade(subject.total || 0, type),
         },
       }
     );

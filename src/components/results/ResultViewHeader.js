@@ -72,7 +72,7 @@ export default function ResultViewHeader({
       <td className="border p-1 text-gray-800">
         <b>Student ID:</b> {student?.studentId || "Loading..."}
       </td>
-      <td className="border p-1">
+      <td className="border p-1 text-gray-800">
         <b>Class:</b> {student?.currentClass?.className || "Loading..."}
       </td>
     </tr>
@@ -81,7 +81,8 @@ export default function ResultViewHeader({
       <td className="border p-1 text-gray-800">
         <b>Session:</b> {session || "Not selected"}
       </td>
-      <td className="border p-1">
+
+      <td className="border p-1 text-gray-800">
         <b>Term:</b> {term || "Not selected"}
       </td>
 

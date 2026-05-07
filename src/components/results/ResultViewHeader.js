@@ -61,7 +61,7 @@ export default function ResultViewHeader({
       <div className="my-5 h-[1px] bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
 
       {/* STUDENT DETAILS */}
-<table className="w-full border border-gray-300 text-xs">
+<table className="w-full border border-gray-800 text-xs">
   <tbody>
     <tr>
       <td className="border p-1">

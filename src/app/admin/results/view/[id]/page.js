@@ -243,7 +243,7 @@ const type = searchParams.get("type") || "";
 
     <table className="w-full text-[10px]">
       <thead>
-        <tr className="bg-slate-200 text-gray-700">
+        <tr className="bg-slate-200 text-gray-800">
           <th className="px-1 py-1 text-left">Score Range</th>
           <th className="px-1 py-1 text-center">Grade</th>
           <th className="px-1 py-1 text-left">Meaning</th>
@@ -253,21 +253,21 @@ const type = searchParams.get("type") || "";
       <tbody>
         {type === "CA" ? (
           <>
-            <tr><td>0-11</td><td className="text-center font-bold text-red-500">F</td><td>Fail</td></tr>
-            <tr><td>12-13</td><td className="text-center font-bold text-orange-500">E</td><td>Poor</td></tr>
-            <tr><td>14</td><td className="text-center font-bold text-yellow-500">D</td><td>Pass</td></tr>
-            <tr><td>15-17</td><td className="text-center font-bold text-blue-500">C</td><td>Good</td></tr>
-            <tr><td>18-20</td><td className="text-center font-bold text-indigo-500">B</td><td>Very Good</td></tr>
-            <tr><td>21-30</td><td className="text-center font-bold text-green-600">A</td><td>Excellent</td></tr>
+            <tr><td className="text-gray-800">0-11</td><td className="text-center font-bold text-red-500">F</td><td className="text-gray-800">Fail</td></tr>
+            <tr><td className="text-gray-800">12-13</td><td className="text-center font-bold text-orange-500">E</td><td className="text-gray-800">Poor</td></tr>
+            <tr><td className="text-gray-800">14</td><td className="text-center font-bold text-yellow-500">D</td><td className="text-gray-800">Pass</td></tr>
+            <tr><td className="text-gray-800">15-17</td><td className="text-center font-bold text-blue-500">C</td><td className="text-gray-800">Good</td></tr>
+            <tr><td className="text-gray-800">18-20</td><td className="text-center font-bold text-indigo-500">B</td><td className="text-gray-800">Very Good</td></tr>
+            <tr><td className="text-gray-800">21-30</td><td className="text-center font-bold text-green-600">A</td><td className="text-gray-800">Excellent</td></tr>
           </>
         ) : (
           <>
-            <tr><td>0-39%</td><td className="text-center font-bold text-red-500">F</td><td>Fail</td></tr>
-            <tr><td>40-45%</td><td className="text-center font-bold text-orange-500">E</td><td>Poor</td></tr>
-            <tr><td>46-49%</td><td className="text-center font-bold text-yellow-500">D</td><td>Pass</td></tr>
-            <tr><td>50-59%</td><td className="text-center font-bold text-blue-500">C</td><td>Good</td></tr>
-            <tr><td>60-69%</td><td className="text-center font-bold text-indigo-500">B</td><td>Very Good</td></tr>
-            <tr><td>70-100%</td><td className="text-center font-bold text-green-600">A</td><td>Excellent</td></tr>
+            <tr><td className="text-gray-800">0-39%</td><td className="text-center font-bold text-red-500">F</td><td className="text-gray-800">Fail</td></tr>
+            <tr><td className="text-gray-800">40-45%</td><td className="text-center font-bold text-orange-500">E</td><td className="text-gray-800">Poor</td></tr>
+            <tr><td className="text-gray-800">46-49%</td><td className="text-center font-bold text-yellow-500">D</td><td className="text-gray-800">Pass</td></tr>
+            <tr><td className="text-gray-800">50-59%</td><td className="text-center font-bold text-blue-500">C</td><td className="text-gray-800">Good</td></tr>
+            <tr><td className="text-gray-800">60-69%</td><td className="text-center font-bold text-indigo-500">B</td><td className="text-gray-800">Very Good</td></tr>
+            <tr><td className="text-gray-800">70-100%</td><td className="text-center font-bold text-green-600">A</td><td className="text-gray-800">Excellent</td></tr>
           </>
         )}
       </tbody>

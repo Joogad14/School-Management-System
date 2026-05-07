@@ -20,7 +20,7 @@ export async function GET(req) {
       );
     }
 
-    // ================= 1️⃣ EXACT MATCH =================
+    // ✅ ONLY ONE RESULT QUERY
     let result = await Result.findOne({
       student: studentId,
       session,
@@ -30,15 +30,6 @@ export async function GET(req) {
       .populate("subjects.subject")
       .populate("student")
       .populate("class");
-
-    // ================= 2️⃣ FALLBACK =================
-    if (!result) {
-      result = await Result.findOne({
-        student: studentId,
-        session,
-        term,
-      }).sort({ createdAt: -1 }); // latest
-    }
 
     return NextResponse.json({
       success: true,

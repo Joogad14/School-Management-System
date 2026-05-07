@@ -48,6 +48,12 @@ export default function ResultEditor({ studentId }) {
       try {
         setLoading(true);
 
+        setSubjects([]);
+        setStudentActivity([]);
+        setAttendance({ daysOpen: 0, daysPresent: 0 });
+        setComments({ teacherComment: "", directorComment: "" });
+        setPosition("");
+
         // STUDENT
         const res = await fetch(`/api/admin/students/${studentId}`);
         const data = await res.json();
@@ -67,6 +73,11 @@ export default function ResultEditor({ studentId }) {
 
         const resData = await resResult.json();
         const savedResult = resData?.data || null;
+
+        setAttendance({
+        daysOpen: savedResult?.daysOpen ?? 0,
+        daysPresent: savedResult?.daysPresent ?? 0,
+      });
 
         // ✅ POSITION (IMPORTANT FIX)
         setPosition(savedResult?.position || "");
@@ -110,12 +121,14 @@ export default function ResultEditor({ studentId }) {
 
                   ca1: existing?.ca1 ?? 0,
                   ca2: existing?.ca2 ?? 0,
-                  exam: existing?.exam ?? 0,
+                  exam: type === "EXAM" ? existing?.exam ?? 0 : 0,
 
                   total: existing?.total ?? 0,
                   grandTotal: existing?.grandTotal ?? 0,
                   average: existing?.average ?? 0,
                   remark: existing?.remark ?? "",
+                  grade: existing?.grade ?? "",         
+                  position: existing?.position ?? "",    
 
                   firstTermTotal: firstTermMap[String(s._id)] || 0,
                   secondTermTotal: secondTermMap[String(s._id)] || 0,
@@ -144,6 +157,7 @@ export default function ResultEditor({ studentId }) {
     const s = updated[i];
 
     if (type === "CA") {
+          delete s.exam;
       s.total = s.ca1 + s.ca2;
       s.grandTotal = s.total;
       s.average = Number(((s.total / 30) * 100).toFixed(2));
@@ -178,15 +192,37 @@ export default function ResultEditor({ studentId }) {
     };
 
     // ✅ ADD THIS
-    s.grade = getGrade(s.total || s.average || 0);
+     if (type === "CA") {
+          const percent = ((s.total || 0) / 30) * 100;
+          s.grade = getGrade(percent);
 
+        } else if (term === "3rd Term") {
+          // 🔥 USE AVERAGE FOR 3RD TERM
+          s.grade = getGrade(s.average || 0);
+
+        } else {
+          // 1st & 2nd term exam
+          s.grade = getGrade(s.total || 0);
+        }
     // EXISTING
-    s.remark =
-      s.average >= 70
-        ? "Excellent"
-        : s.average >= 50
-        ? "Good"
-        : "Poor";
+    if (s.grade === "A") {
+      s.remark = "Excellent";
+
+    } else if (s.grade === "B") {
+      s.remark = "Very Good";
+
+    } else if (s.grade === "C") {
+      s.remark = "Good";
+
+    } else if (s.grade === "D") {
+      s.remark = "Pass";
+
+    } else if (s.grade === "E") {
+      s.remark = "Poor";
+
+    } else {
+      s.remark = "Fail";
+    }
 
     setSubjects(updated);
   };
@@ -258,12 +294,14 @@ const secondTermSubjects = subjects.map((s) => ({
       subjectName: s.subjectName,
       ca1: Number(s.ca1 || 0),
       ca2: Number(s.ca2 || 0),
-      exam: Number(s.exam || 0),
+      ...(type === "EXAM" && { exam: Number(s.exam || 0) }),
       total: Number(s.total || 0),
       grandTotal: Number(s.grandTotal || 0),
       average: Number(s.average || 0),
       remark: s.remark || "",
     }));
+
+    
 
     const res = await fetch("/api/admin/results/save", {
       method: "POST",

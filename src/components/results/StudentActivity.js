@@ -36,7 +36,7 @@ export default function StudentActivity({ activity, setActivity }) {
 
   return (
     <div className="bg-white mt-6 p-6 rounded-2xl shadow-md border border-slate-100">
-      <h3 className="font-semibold mb-4 text-gray-700">
+      <h3 className="font-semibold mb-4 text-gray-800">
         Student Activity
       </h3>
 
@@ -47,7 +47,7 @@ export default function StudentActivity({ activity, setActivity }) {
           return (
             <div key={f.key}>
               <div className="flex justify-between text-sm mb-2">
-                <span className="text-gray-600">{f.label}</span>
+                <span className="text-gray-800">{f.label}</span>
                 <span className="font-semibold text-gray-800">
                   {value}
                 </span>

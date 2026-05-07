@@ -10,3 +10,34 @@
 .animate-slideIn {
   animation: slideIn 0.3s ease-out;
 }
+
+@media print {
+  body {
+    margin: 0;
+    background: white;
+  }
+
+  .no-print {
+    display: none;
+  }
+
+  .report-container {
+    width: 210mm;
+    height: 297mm;
+    padding: 8mm;
+    overflow: hidden;
+    font-size: 11px;
+  }
+
+  table {
+    font-size: 10px;
+  }
+
+  h2 {
+    font-size: 14px;
+  }
+
+  p {
+    margin: 2px 0;
+  }
+}

@@ -15,6 +15,7 @@ export default function AdminSidebar() {
     { name: "Session & Term", path: "/admin/session-term" },
     { name: "Tuition Receipt", path: "/admin/tuition" },
     { name: "Results", path: "/admin/results" },
+    { name: "View Results", path: "/admin/view-results" },
     { name: "Subjects", path: "/admin/subjects" },
     { name: "Promotion", path: "/admin/promotion" },
     { name: "Staff", path: "/admin/staff" },

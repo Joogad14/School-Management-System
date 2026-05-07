@@ -2,7 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { useParams, useSearchParams } from "next/navigation";
-import ReportHeader from "@/components/results/ReportHeader";
+import ResultViewHeader from "@/components/results/ResultViewHeader";
+
 
 export default function ViewResultPage() {
   const { id } = useParams();
@@ -27,7 +28,7 @@ const type = searchParams.get("type") || "";
       try {
         setLoading(true);
 
-        const res = await fetch(`/api/results/view/${id}`);
+        const res = await fetch(`/api/results/view/${id}?session=${session}&term=${term}&type=${type}`);
         const result = await res.json();
 
         const record = result?.data;
@@ -54,7 +55,7 @@ const type = searchParams.get("type") || "";
     };
 
     load();
-  }, [id]);
+  }, [id, session, term, type]);
 
   if (loading) return <div className="p-6">Loading...</div>;
   if (!data) return <div className="p-6">No result found</div>;
@@ -62,53 +63,98 @@ const type = searchParams.get("type") || "";
   
 
   return (
-  <div className="p-6 bg-slate-100 min-h-screen text-sm space-y-6">
+  <>
+    <style jsx global>{`
+      @media print {
+        body {
+          background: white;
+        }
 
-    {/* HEADER */}
-    <ReportHeader
-      student={data?.student}
-      className={data?.class?.className}
-      session={session}
-      term={term}
-    />
+         .shadow {
+        box-shadow: none !important;
+      }
+
+        .no-print {
+          display: none !important;
+        }
+
+        table {
+          font-size: 10px;
+        }
+
+        th, td {
+          padding: 2px !important;
+        }
+
+        .scale-print {
+          transform: scale(0.85);
+          transform-origin: top left;
+          width: 117%;
+        }
+      }
+    `}</style>
+
+    
+  <div className="print-container scale-print">
+
+    <div className="flex justify-end mb-4 no-print">
+      <button
+        onClick={() => window.print()}
+        className="bg-[#0a1f44] text-white px-4 py-2 rounded-lg shadow cursor-pointer"
+      >
+        Download Result
+      </button>
+  </div>
+
+    <ResultViewHeader 
+        student={data?.student}
+        className={data?.class?.className}
+        session={session} 
+        term={term}
+        type={type}  
+      />
+
 
     {/* TABLE */}
-    <div className="bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden">
+          <div className="bg-white rounded-xl border border-slate-200 overflow-hidden print:shadow-none">
 
-      <div className="px-5 py-4 border-b bg-slate-50">
-        <h2 className="font-semibold text-centre text-gray-700">Statement of Result </h2>
-      </div>
+        <div className="px-3 py-2 border-b bg-slate-50">
+          <h2 className="font-semibold text-center text-gray-700 text-sm">
+            Statement of Result
+          </h2>
+        </div>
 
-      <div className="overflow-x-auto">
-        <table className="w-full text-sm">
-
+        <div className="overflow-x-auto">
+          <table className="w-full text-[11px] leading-tight">
           {/* HEADER */}
           <thead>
-            <tr className="bg-slate-100 text-gray-700 text-xs uppercase tracking-wide">
-              <th className="p-3 text-left">Code</th>
-              <th className="p-3 text-left">Subject</th>
-              <th className="p-3">CA1</th>
-              <th className="p-3">CA2</th>
+            <tr className="bg-slate-100 text-gray-700 text-[10px] uppercase">
+              <th className="px-2 py-1 text-left">Code</th>
+              <th className="px-2 py-1 text-left">Subject</th>
+              <th className="px-2 py-1">CA1</th>
+              <th className="px-2 py-1">CA2</th>
 
-              {type === "CA" && <th className="p-3">Total</th>}
+              {type === "CA" && <th className="px-2 py-1">Total</th>}
 
               {type === "EXAM" && term !== "3rd Term" && (
                 <>
-                  <th className="p-3">Exam</th>
-                  <th className="p-3">Total</th>
+                  <th className="px-2 py-1">Exam</th>
+                  <th className="px-2 py-1">Total</th>
                 </>
               )}
 
               {type === "EXAM" && term === "3rd Term" && (
                 <>
-                  <th className="p-3">Exam</th>
-                  <th className="p-3">1st</th>
-                  <th className="p-3">2nd</th>
-                  <th className="p-3">Avg</th>
+                  <th className="px-2 py-1">Exam</th>
+                  <th className="px-2 py-1">1st</th>
+                  <th className="px-2 py-1">2nd</th>
+                  <th className="px-2 py-1">Average</th>
                 </>
               )}
 
-              <th className="p-3">Remark</th>
+              <th className="px-2 py-1">Grade</th>
+              <th className="px-2 py-1">Position</th>
+              <th className="px-2 py-1">Remark</th>
             </tr>
           </thead>
 
@@ -117,12 +163,12 @@ const type = searchParams.get("type") || "";
             {data?.subjects?.map((s, i) => {
               const firstTerm =
                 data.firstTermSubjects?.find(
-                  (f) => f.subjectName === s.subjectName
+                  (f) => String(f.subject) === String(s.subject._id)
                 )?.total || 0;
 
               const secondTerm =
                 data.secondTermSubjects?.find(
-                  (f) => f.subjectName === s.subjectName
+                  (f) => String(f.subject) === String(s.subject._id)
                 )?.total || 0;
 
               return ( 
@@ -130,22 +176,24 @@ const type = searchParams.get("type") || "";
                   key={i}
                   className="border-t text-gray-800 hover:bg-slate-50 transition"
                 >
-                  <td className="p-3 text-gray-800">{s.subjectCode}</td>
-                  <td className="p-3 text-gray-800 font-medium">{s.subjectName}</td>
+                  <td className="px-2 py-1 text-gray-800">{s.subjectCode}</td>
+                  <td className="px-2 py-1 font-medium truncate max-w-[120px]">
+                    {s.subjectName}
+                  </td>
 
-                  <td className="p-3 text-gray-800 text-center">{s.ca1}</td>
-                  <td className="p-3 text-gray-800text-center">{s.ca2}</td>
+                  <td className="px-2 py-1 text-gray-800 text-center">{s.ca1}</td>
+                  <td className="px-2 py-1 text-gray-800 text-center">{s.ca2}</td>
 
                   {type === "CA" && (
-                    <td className="p-3 text-gray-800 text-center font-semibold text-blue-600">
+                    <td className="px-2 py-1 text-gray-800 text-center font-semibold text-blue-600">
                       {s.total}
                     </td>
                   )}
 
                   {type === "EXAM" && term !== "3rd Term" && (
                     <>
-                      <td className="p-3 text-gray-800 text-center">{s.exam}</td>
-                      <td className="p-3 text-gray-800 text-center font-semibold text-blue-600">
+                      <td className="px-2 py-1 text-gray-800 text-center">{s.exam}</td>
+                      <td className="px-2 py-1 text-gray-800 text-center font-semibold text-blue-600">
                         {s.total}
                       </td>
                     </>
@@ -153,20 +201,28 @@ const type = searchParams.get("type") || "";
 
                   {type === "EXAM" && term === "3rd Term" && (
                     <>
-                      <td className="p-3 text-gray-800 text-center">{s.exam}</td>
-                      <td className="p-3 text-gray-800 text-center">{firstTerm}</td>
-                      <td className="p-3 text-gray-800 text-center">{secondTerm}</td>
-                      <td className="p-3 text-center font-semibold text-blue-600">
+                      <td className="px-2 py-1 text-gray-800 text-center">{s.exam}</td>
+                      <td className="px-2 py-1 text-gray-800 text-center">{firstTerm}</td>
+                      <td className="px-2 py-1 text-gray-800 text-center">{secondTerm}</td>
+                      <td className="px-2 py-1 text-center font-semibold text-blue-600">
                         {s.average}
                       </td>
                     </>
                   )}
 
-                  <td className="p-3">
-                    <span className="px-2 py-1 rounded-lg text-xs bg-slate-100 text-gray-700">
-                      {s.remark}
-                    </span>
-                  </td>
+                  <td className="px-2 py-1 text-center font-semibold text-indigo-600">
+                  {s.grade || "-"}
+                </td>
+
+                <td className="px-2 py-1 text-center text-purple-600">
+                  {s.position || "-"}
+                </td>
+
+                <td className="px-2 py-1">
+                  <span className="px-2 py-1 rounded-lg text-xs text-gray-800">
+                    {s.remark}
+                  </span>
+                </td>
                 </tr>
               );
             })}
@@ -176,8 +232,78 @@ const type = searchParams.get("type") || "";
       </div>
     </div>
 
+    <div className="grid grid-cols-2 gap-2 mt-2 text-[11px]">
+
+  {/* LEFT: GRADE SUMMARY */}
+  <div className="bg-slate-50 p-2 rounded-lg">
+
+    <p className="font-bold text-gray-700 mb-1 text-[11px]">
+      Grade Interpretation
+    </p>
+
+    <table className="w-full text-[10px]">
+      <thead>
+        <tr className="bg-slate-200 text-gray-700">
+          <th className="px-1 py-1 text-left">Score Range</th>
+          <th className="px-1 py-1 text-center">Grade</th>
+          <th className="px-1 py-1 text-left">Meaning</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {type === "CA" ? (
+          <>
+            <tr><td>0-11</td><td className="text-center font-bold text-red-500">F</td><td>Fail</td></tr>
+            <tr><td>12-13</td><td className="text-center font-bold text-orange-500">E</td><td>Poor</td></tr>
+            <tr><td>14</td><td className="text-center font-bold text-yellow-500">D</td><td>Pass</td></tr>
+            <tr><td>15-17</td><td className="text-center font-bold text-blue-500">C</td><td>Good</td></tr>
+            <tr><td>18-20</td><td className="text-center font-bold text-indigo-500">B</td><td>Very Good</td></tr>
+            <tr><td>21-30</td><td className="text-center font-bold text-green-600">A</td><td>Excellent</td></tr>
+          </>
+        ) : (
+          <>
+            <tr><td>0-39%</td><td className="text-center font-bold text-red-500">F</td><td>Fail</td></tr>
+            <tr><td>40-45%</td><td className="text-center font-bold text-orange-500">E</td><td>Poor</td></tr>
+            <tr><td>46-49%</td><td className="text-center font-bold text-yellow-500">D</td><td>Pass</td></tr>
+            <tr><td>50-59%</td><td className="text-center font-bold text-blue-500">C</td><td>Good</td></tr>
+            <tr><td>60-69%</td><td className="text-center font-bold text-indigo-500">B</td><td>Very Good</td></tr>
+            <tr><td>70-100%</td><td className="text-center font-bold text-green-600">A</td><td>Excellent</td></tr>
+          </>
+        )}
+      </tbody>
+    </table>
+  </div>
+
+  {/* RIGHT: STUDENT ACTIVITY */}
+  <div className="bg-slate-50 p-2 rounded-lg">
+
+    <p className="font-bold text-gray-700 mb-1 text-[11px]">
+      Student Activity
+    </p>
+
+    <div className="grid grid-cols-2 gap-1">
+      {data?.studentActivity?.map((item, i) => (
+        <div
+          key={i}
+          className="flex justify-between items-center px-2 py-1 bg-white rounded-md"
+        >
+          <span className="text-[10px] text-gray-700 truncate">
+            {item.name}
+          </span>
+
+          <span className="font-bold text-blue-600 text-[10px]">
+            {item.score}/5
+          </span>
+        </div>
+      ))}
+    </div>
+
+  </div>
+
+</div>
+
     {/* SUMMARY */}
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+    <div className="grid grid-cols-2 gap-2 text-xs">
 
       <div className="bg-white p-4 rounded-2xl shadow border border-slate-100">
         <p className="text-xs text-gray-500">Total Score</p>
@@ -194,11 +320,11 @@ const type = searchParams.get("type") || "";
       </div>
 
       <div className="bg-white p-4 rounded-2xl shadow border border-slate-100">
-        <p className="text-xs text-gray-500">Position</p>
-        <p className="font-bold text-lg text-purple-600">
-          {data?.position || "-"}
-        </p>
-      </div>
+      <p className="text-xs text-gray-500">Total No. of Students in Class</p>
+      <p className="font-bold text-lg text-blue-600">
+        {data?.totalStudents || 0}
+      </p>
+    </div>
 
       <div className="bg-white p-4 rounded-2xl shadow border border-slate-100">
         <p className="text-xs text-gray-500">Attendance</p>
@@ -209,31 +335,32 @@ const type = searchParams.get("type") || "";
 
     </div>
 
-    {/* COMMENTS */}
-    <div className="grid md:grid-cols-2 gap-4">
+    
 
-      <div className="bg-white p-5 rounded-2xl shadow border border-slate-100">
-        <p className="text-xs text-gray-800 mb-2 uppercase">
-          Teacher's Comment
-        </p>
+    <div className="grid grid-cols-2 gap-2 mt-2 text-xs">
 
-        <p className="text-sm text-gray-800 leading-relaxed">
-          {comments.teacherComment || "No comment provided"}
-        </p>
-      </div>
+  <div className="bg-slate-50 p-3 rounded-lg">
+    <p className="text-[10px] font-bold text-gray-600 uppercase mb-1">
+      Teacher's Comment
+    </p>
 
-      <div className="bg-white p-5 rounded-2xl shadow border border-slate-100">
-        <p className="text-xs text-gray-800 mb-2 uppercase">
-          Director's Comment
-        </p>
-
-        <p className="text-sm text-gray-800 leading-relaxed">
-          {comments.directorComment || "No comment provided"}
-        </p>
-      </div>
-
-    </div>
-
+    <p className="text-sm font-medium text-gray-800 leading-snug">
+      {comments.teacherComment || "No comment provided"}
+    </p>
   </div>
+
+  <div className="bg-slate-50 p-3 rounded-lg">
+    <p className="text-[10px] font-bold text-gray-600 uppercase mb-1">
+      Director's Comment
+    </p>
+
+    <p className="text-sm font-medium text-gray-800 leading-snug">
+      {comments.directorComment || "No comment provided"}
+    </p>
+  </div>
+
+</div>
+  </div>
+  </>
 );
 }

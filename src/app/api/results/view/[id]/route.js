@@ -3,48 +3,62 @@ import dbConnect from "@/lib/db";
 import Result from "@/models/Result";
 import "@/models/Student";
 import "@/models/Class";
+import "@/models/Subject";
 
 export async function GET(req, { params }) {
   try {
     await dbConnect();
 
-    const { id } = await params;
+    const { id: studentId } = await params;
 
-    if (!id) {
+    const { searchParams } = new URL(req.url);
+    const session = searchParams.get("session");
+    const term = searchParams.get("term");
+    const type = searchParams.get("type");
+
+    
+    if (!studentId || !session || !term || !type) {
       return NextResponse.json(
-        { message: "Missing result ID" },
+        { message: "Missing required parameters" },
         { status: 400 }
       );
     }
 
-    console.time("DB_QUERY");
-
-    const result = await Result.findById(id)
+    const result = await 
+    Result.findById(studentId)
+      .populate("subjects.subject")
       .populate({
         path: "student",
-        select: "firstName lastName studentId currentClass",
         populate: {
           path: "currentClass",
           model: "Class",
-          select: "className",
         },
       })
-      .populate("class", "className")
-      .lean();
-
-    console.timeEnd("DB_QUERY");
+      .populate("class")
+      .lean(); 
 
     if (!result) {
-      return NextResponse.json(
-        { message: "Result not found" },
-        { status: 404 }
-      );
-    }
+  return NextResponse.json(
+    { message: "Result not found" },
+    { status: 404 }
+  );
+}
 
-    return NextResponse.json({
-      success: true,
-      data: result,
-    });
+const totalStudents = await Result.countDocuments({
+  class: result.class._id,
+  session,
+  term,
+  type,
+});
+
+
+return NextResponse.json({
+  success: true,
+  data: {
+    ...result,
+    totalStudents,
+  },
+});
 
   } catch (error) {
     console.error("VIEW RESULT ERROR:", error);

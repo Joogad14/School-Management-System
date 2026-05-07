@@ -61,15 +61,15 @@ export default function ResultViewHeader({
       <div className="my-5 h-[1px] bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
 
       {/* STUDENT DETAILS */}
-<table className="w-full border border-gray-800 text-xs">
+<table className="w-full border border-gray-500 text-xs">
   <tbody>
     <tr>
-      <td className="border p-1">
+      <td className="border p-1 text-gray-800">
         <b>Name:</b> {student
               ? `${student.firstName} ${student.lastName}`
               : "Loading..."}
       </td>
-      <td className="border p-1">
+      <td className="border p-1 text-gray-800">
         <b>Student ID:</b> {student?.studentId || "Loading..."}
       </td>
       <td className="border p-1">
@@ -78,7 +78,7 @@ export default function ResultViewHeader({
     </tr>
 
     <tr>
-      <td className="border p-1">
+      <td className="border p-1 text-gray-800">
         <b>Session:</b> {session || "Not selected"}
       </td>
       <td className="border p-1">
